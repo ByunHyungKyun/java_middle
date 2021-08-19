@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+<button type="button" onclick="proc()">로또번호 생성</button>
+
+<hr>
+
+<input type="text" id="no">
+<button type="button" onclick="checkNum()">주민번호 확인</button>
+</body>
+<script type="text/javascript">
+	function proc() {
+		var arr = new Array();
+        for(var i = 0; i < 6; i++){
+            arr.push(Math.floor(Math.random()*45)+1); 
+            for(var j = 0; j < i; j++){
+                if (arr[i] === arr[j]) {
+                    arr.pop();
+                    i--;  
+                }
+            }
+        }
+			alert("로또번호 : "+arr);
+	}
+	
+	
+	function checkNum() {
+		var val = document.getElementById("no").value;
+		var a = parseInt(val.substr(0,1)); //스트링값으로 바뀌어서!
+		var b = parseInt(val.substr(1,1));
+		var c = parseInt(val.substr(2,1));
+		var d = parseInt(val.substr(3,1));
+		var e = parseInt(val.substr(4,1));
+		var f = parseInt(val.substr(5,1));
+		var g = parseInt(val.substr(7,1));
+		var h = parseInt(val.substr(8,1));
+		var i = parseInt(val.substr(9,1));
+		var j = parseInt(val.substr(10,1));
+		var k = parseInt(val.substr(11,1));
+		var l = parseInt(val.substr(12,1));
+		var m = parseInt(val.substr(13,1));
+	var num1 = a*2+b*3+c*4+d*5+e*6+f*7+g*8+h*9+i*2+j*3+k*4+l*5;
+	var	num2 = num1%11;
+	var num3 = 11-num2;
+	var num4 = 0;
+		if (0 < num3 && num3 <9){ 
+		num4 = num3;
+		} else if (num3 == 10) {
+			num4 = 0;
+		} else if (num3 == 11) {
+			num4 = 1;
+		}
+		if (num4 == m) {
+			alert("맞는 주민번호 입니다");
+		} else {
+			alert("틀린주민번호 입니다");
+		}
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

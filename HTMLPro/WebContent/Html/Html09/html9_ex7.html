@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<button type="button" onclick="proc()">로또번호 생성</button>
+</body>
+<script type="text/javascript">
+	function proc() {
+		var arr = new Array();
+        for(var i = 0; i < 6; i++){
+            arr.push(Math.floor(Math.random()*45)+1); 
+            for(var j = 0; j<i; j++){
+                if (arr[i] === arr[j]) {
+                    arr.pop();
+                    i--;  
+                }
+            }
+        }
+			alert("로또번호 : "+arr);
+	}
+</script>
+</html>
+
+
+
+

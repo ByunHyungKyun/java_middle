@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../JS/Html8/html8_ex1.js"> //외부스크립트예제
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		//내부스크립트예제
+		/*
+		var now = new Date(); //var은 변수타입을 선언해준것이다 동시에 날짜객체를 생성해준다
+		document.write(now); //문서(페이지)에다가 쓸건데 할당받은 now를 쓸거라는것이다
+		//=>System.out.println()과 같이 쓰인다
+		//=>페이지를 새로 그릴때 사용한다
+		document.write("안녕하세요.");
+		*/
+	</script>
+	<button type="button" onclick="document.write('안녕하세요.');">클릭</button> <!-- onclick했을때 일어나는 이벤트를 설정 -->
+	<button type="button" onclick="alert('하이');">클릭2</button>
+	<button type="button" onclick="console.log('헬로우');">클릭3</button> <!-- 개발자 도구의 콜솔창에 나온다 -->
+</body>
+</html> 

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function fight() {
+			var hu = document.getElementById("re");
+			var humanre =  hu.value;
+			var arr = [ "가위", "바위", "보" ];
+			var com = Math.floor(Math.random() * 3 + 1);
+			
+			
+			if (humanre == arr[com - 1]) {
+				document.getElementById('result').innerHTML = "결과 : 비겼습니다!";
+				if (humanre == "가위") {
+					document.getElementById("right").src = "../Img/ga_left.jpg";
+					document.getElementById("left").src = "../Img/ga_right.jpg";
+				} else if (humanre == "바위") {
+					document.getElementById("right").src = "../Img/ba_left.jpg";
+					document.getElementById("left").src = "../Img/ba_right.jpg";
+				} else {
+					document.getElementById("right").src = "../Img/bo_left.jpg";
+					document.getElementById("left").src = "../Img/bo_right.jpg";
+				}
+
+			} else if (humanre == "가위" && arr[com - 1] == "바위" || humanre == "바위"
+					&& arr[com - 1] == "보" || humanre == "보"
+					&& arr[com - 1] == "가위") {
+				document.getElementById('result').innerHTML = "결과 : 당신의 패!!!";
+				if (humanre == "가위") {
+					document.getElementById("right").src = "../Img/ga_left.jpg";
+					document.getElementById("left").src = "../Img/ba_right.jpg";
+				} else if (humanre == "바위") {
+					document.getElementById("right").src = "../Img/ba_left.jpg";
+					document.getElementById("left").src = "../Img/bo_right.jpg";
+				} else {
+					document.getElementById("right").src = "../Img/bo_left.jpg";
+					document.getElementById("left").src = "../Img/ga_right.jpg";
+				}
+			} else if (humanre == "가위" && arr[com - 1] == "보" || humanre == "바위"
+					&& arr[com - 1] == "가위" || humanre == "보"
+					&& arr[com - 1] == "바위") {
+				document.getElementById('result').innerHTML = "결과 : 당신의  승!!!";
+				if (humanre == "가위") {
+					document.getElementById("right").src = "../Img/ga_left.jpg";
+					document.getElementById("left").src = "../Img/bo_right.jpg";
+				} else if (humanre == "바위") {
+					document.getElementById("right").src = "../Img/ba_left.jpg";
+					document.getElementById("left").src = "../Img/ga_right.jpg";
+				} else {
+					document.getElementById("right").src = "../Img/bo_left.jpg";
+
+					document.getElementById("left").src = "../Img/ba_right.jpg";
+				}
+			} 
+			
+		}
+	</script>
+	<style type="text/css">
+		#box div {
+			position: relative;
+			float: left;
+			width: 50%;
+		}
+
+		#grim div {
+			position: relative;
+			float: left;
+			width: 50%;
+		}
+
+		button {
+			text-align: center;
+		}
+		
+		#re {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<select id="re">
+		<option value="가위">가위</option>
+		<option value="바위">바위</option>
+		<option value="보">보</option>
+	</select>
+	<button type="button" onclick="fight()">대결</button><br>
+	<div id="box">
+		<div style="background-color:yellow;">
+			<p style="text-align: center;">사람</p>
+		</div>
+		<div style="background-color: red;">
+			<p style="text-align: center;">컴퓨터</p>
+		</div>
+	</div>
+	<div id="grim">
+		<div>
+			<img id="right" alt="" src="../Img/ba_left.jpg">
+		</div>
+		<div>
+			<img id="left" alt="" src="../Img/ba_right.jpg">
+		</div>
+	</div>
+	<div>
+		<p id="result" style="text-align: center;"></p>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

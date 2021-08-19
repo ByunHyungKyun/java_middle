@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link type="text/css" rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+ 	<div style="position: relative;">
+ 		<img id="hom" alt="" src="img/홈화면4.jpg"  width="750" height="400">
+ 	</div>
+ 	<div style="position: relative;">
+ 		<img width="750" height="420" alt="" src="img/홈화면5.jpg">
+ 	</div>
+</body>
+<script type="text/javascript">
+	window.onload = function changeBgColor() {
+		setInterval(changeColor,1000);
+	}
+	
+	function changeColor() {
+		var r=0;
+		r=Math.floor((Math.random()*4)+1);
+		
+		switch(r){
+		case 1:
+			document.getElementById("hom").src="img/홈화면1.jpg";
+			break;
+		case 2:
+			document.getElementById("hom").src="img/홈화면2.jpg";
+			break;
+		case 3:
+			document.getElementById("hom").src="img/홈화면3.jpg";
+			break;
+		case 4:
+			document.getElementById("hom").src="img/홈화면4.jpg";
+			break;
+		
+		}
+	}
+</script>
+</html>

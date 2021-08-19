@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		#div1 {
+			float: left;
+			width: calc( 50% - 50px );
+			text-align: right;
+		}
+		
+		#div2 {
+			float: left;
+			width: 100px;
+			text-align: center;
+		}
+		
+		#div3 {
+			float:left;
+			width: calc( 50% - 50px );
+		}
+		
+		#div4 {
+			text-align: center;
+			clear: both;
+			margin-top: 350px;
+		}
+		h1 {
+			text-align: center;
+		}
+		select {
+			width: 200px;
+			height: 300px;
+		}
+		#div2 button {
+			margin: 20px;
+			width: 65px;
+		}
+	</style>
+	<script type="text/javascript">
+	function plus() {
+		var left = document.getElementById("left");
+		var pp = document.getElementById("pl").value;
+		if(pp != ''){
+		var ele = document.createElement("option");
+		ele.value = pp;
+		ele.innerHTML = pp;
+		left.appendChild(ele);
+		}
+		document.getElementById("pl").value="";
+	}
+	
+	function rightselect() {
+		var num = document.getElementById("left").value;
+		var left = document.getElementById("left");
+		var right = document.getElementById("right");
+		if(num != ''){
+		var ele = document.createElement("option");
+		ele.value = num;
+		ele.innerHTML = num;
+		right.appendChild(ele);
+		left.remove(ele);
+		}
+	}
+	
+	function righttall() {
+		var ch = document.getElementById("left");
+		for(var i =0 ; i < ch.length;i++){
+			num = ch[i].value;
+			var ele = document.createElement("option");
+			ele.value = num;
+			ele.innerHTML = num;
+			right.appendChild(ele);
+		}
+			left.options.length=0; 
+	}
+	
+	
+	function leftselect() {
+		var num = document.getElementById("right").value;
+		var right = document.getElementById("right");
+		var left = document.getElementById("left");
+		if(num != ''){
+		var ele = document.createElement("option");
+		ele.value = num;
+		ele.innerHTML = num;
+		left.appendChild(ele);
+		right.remove(ele);
+		}
+	}
+	
+	function leftall() {
+		var ch = document.getElementById("right");
+		for(var i =0 ; i < ch.length;i++){
+			num = ch[i].value;
+			var ele = document.createElement("option");
+			ele.value = num;
+			ele.innerHTML = num;
+			left.appendChild(ele);
+		}
+			right.options.length=0; 
+	}
+	</script>
+</head>
+<body>
+	<h1>select 객체 예제 </h1> <!-- multiple쓰기 -->
+		<div id="div1">
+			<select multiple="multiple"  size="20" id="left"></select>
+		</div>
+		<div id="div2">
+			<button onclick="rightselect()"> > </button><br>
+			<button onclick="righttall()"> >> </button><br>
+			<button onclick="leftselect()"> < </button><br>
+			<button onclick="leftall()"> << </button><br>
+		</div>
+		<div id="div3">
+			<select multiple="multiple" size="20" id="right"></select>
+		</div>
+		<div id="div4">
+			<input type="text" size="20" id="pl">
+			<button type="button" onclick="plus()" style="width: 70px;">추가하기</button>
+		</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

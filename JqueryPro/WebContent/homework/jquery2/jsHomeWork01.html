@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("input[type='button']").css("background-color","yellow");
+		$("a[href ^='mailto']").css("background-color","yellow");
+		$("a[href *='power2c']").css("text-decoration","none");
+		$("img[id !='img1']").css("border","2px solid blue");
+		$("img[src $='png']").css("border","3px solid green");
+		$("img[alt]").css("border","5px solid");
+		$("img[title *='named']").css("border-style", "double");
+		$("img[id|='little']").css("border-style", "dashed");
+		$("input[type='text']").css("border","2px solid red")
+	});
+	</script>
+</head>
+<body>
+	<a href="http://www.ddit.or.kr" target="_blanck">(재)대덕 인재 개발원</a><br><br>
+	<a href="mailto:power2c@ddit.or.kr">빠워에게 메일 보내</a><br><br><br>
+	
+	<div>
+		Some images:
+	</div>
+	<div>
+		<img id="img1" alt="요소여" src="../../Img/다운로드1.jpg" width="100" height="100">
+		<img id="little"  src="../../Img/다운로드1.jpg" width="100" height="100">
+		<img id="little-bear" alt="요소여2" src="../../Img/다운로드1.jpg" width="100" height="100">
+		<img title="name" src="../../Img/다운로드1.jpg" width="100" height="100">
+		<img title="named" alt="요소여3" src="../../Img/다운로드1.jpg" width="100" height="100">
+		<img src="../../Img/다운로드1.jpg" width="100" height="100">
+		<img src="../../Img/다운로드1.png" width="200" height="200">
+	</div>
+	<div>
+		이곳은 ID속성이 someDiv인  &lt;div&gt;태그 입니다.
+	</div>
+	Text: <input type="text"> <br><br>
+	<button type="submit">Submit</button>
+	<input type="button" value="클릭~~">
+</body>
+</html>
+
+
+
+

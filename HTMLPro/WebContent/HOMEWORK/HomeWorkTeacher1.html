@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		img {
+			width: 100%;
+			opacity: 0.3;      /*투명도,흐림도 조절하는 요소;숫자가 작을수록 흐려진다*/
+			
+		}
+		p {
+			position: absolute; /*absolute : 자기를 감싸고 있는 기준으로 움직인다*/
+			/*;여기서는div가 position이 있어야 하는 것이다*/
+			top: 100px;
+			left:200px;
+			margin: 10px;
+		}
+		div {
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<h1>글자연습하기</h1>
+	<div>
+		<img alt="안나온다아" src="../Img/KakaoTalk_20210302_121618964.jpg">
+		<p>이 글자는 움직인다아아아아</p>
+	</div>
+</body>
+</html>

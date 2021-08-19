@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>연습문제1~3</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//문제1 
+		document.write('문제1');
+		document.write("<br>");
+		var sum = 0;
+		var input1 = prompt("첫번째 숫자를 입력하시오" , "숫자만 입력!");
+		var input2 = prompt("연산자를 입력하시오" , "+,-,*,/,% 중 하나");
+		var input3 = prompt("두번째 숫자를 입력하시오" , "숫자만 입력!");
+		
+		switch(input2){
+		case '+':
+			sum = parseInt(input1)+parseInt(input3)
+			document.write(input1+" + "+input3+" = "+sum);
+			break;
+		case '-':
+			sum = parseInt(input1)-parseInt(input3)
+				document.write(input1+" - "+input3+" = "+sum);
+			break;
+		case '*':
+			sum = parseInt(input1)*parseInt(input3)
+				document.write(input1+" * "+input3+" = "+sum);
+			break;
+		case '/':
+			sum = parseInt(input1)/parseInt(input3)
+				document.write(input1+" / "+input3+" = "+sum);
+			break;
+		case '%':
+			sum = parseInt(input1)%parseInt(input3)
+				document.write(input1+" % "+input3+" = "+sum);
+			break;
+		default : alert("알수없는 연산자 입니다");
+		}
+		
+		document.write("<hr>");
+		
+		//문제2
+		document.write('문제2');
+		document.write("<br>");
+		var grade = prompt("성적을 입력하시오" , "숫자만!");
+		var real;
+		if(90<=grade){
+			real = 'a';
+		}else if(80<=grade){
+			real = 'b';
+		}else if(70<=grade){
+			real = 'c';
+		}else if(60<=grade){
+			real = 'd';
+		}else {
+			real = 'f';
+		}
+		
+	    switch (real){
+		case 'a': document.write("A학점입니다!^^ 잘했어요!");
+		break;
+		case 'b':  document.write("B학점입니다! 좋은 점수군요");
+		break;
+		case 'c':  document.write("C학점 입니다.괜찮은 점수군요");
+		break;
+		case 'd':  document.write("D학점 입니다...좀더노력하세요");
+		break;
+		case 'f':  document.write("인생포기");
+		break;
+		}
+	    document.write("<hr>");
+	    
+	  	//문제3
+		document.write('문제3');
+		document.write("<br>");
+		var human1 = prompt("첫번째 사람의 가위,바위,보를 입력하시오","꼭 가위,바위,보 3개중 하나를 입력하시오!")
+		var human2 = prompt("첫번째 사람의 가위,바위,보를 입력하시오","꼭 가위,바위,보 3개중 하나를 입력하시오!")
+		
+		if(human1 == '가위'){
+			if(human2 == '가위'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 비겼습니다!");
+			}else if(human2== '바위'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 두번째 사람 승!!");
+			}else if(human2== '보'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 첫번째 사람 승!!");
+			}else {
+				document.write("<br>");
+				document.write("두번째 사람이 잘못입력하셨습니다");
+			}
+		}else if(human1== '바위'){
+			if(human2== '가위'){	
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 첫번째 사람 승!!");
+			}else if(human2== '바위'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 비겼습니다!!");
+			}else if(human2== '보'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 두번째 사람 승!!");
+			}else {
+				document.write("<br>");
+				document.write("두번째 사람이 잘못입력하셨습니다");
+			}
+		}else if(human1== '보') {
+			if(human2== '가위'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 두번째 사람 승!!");
+			}else if(human2== '바위'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 첫번째 사람 승!!");
+			}else if(human2== '보'){
+				document.write("첫번째 사람 : "+human1);
+				document.write("<br>");
+				document.write("두번째 사람 : "+human2);
+				document.write("<br>");
+				document.write("<br>");
+				document.write("<br>");
+				document.write("결과 : 비겼습니다!!");
+			}else {
+				document.write("<br>");
+				document.write("두번째 사람이 잘못입력하셨습니다");
+			}
+		}else {
+			document.write("<br>");
+			 document.write("첫번째 사람이 잘못입력하셨습니다");
+		}
+		  document.write("<hr>");
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

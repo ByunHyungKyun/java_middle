@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<h3>XMLHttpRequest 사용하기</h3>
+	<button type="button" id="btnGetA">Get 비동기 호출</button>
+	<button type="button" id="btnGetS">Get 동기 호출</button>
+	<br>
+	<button type="button" id="btnJQ">JQ AJAX호출</button>
+	<hr>
+	<div id="divResult" style="border: 1px solid; height: 300px;" ></div>
+	<hr>
+	<form action="" method="get" id="fm"> <!-- form안에 어떠한 형식으로 보낼지 알려주는것 -->
+		아이디 : <input type="text" name="userName">
+		비밀번호 : <input type="password" name="userPassword">
+	</form>
+</body>
+<script type="text/javascript">
+	$("#btnJQ").click(function(){
+		//var obj = {userId : "test01" , userPw : "1234567890"};
+		var obj = $("#fm").serialize();
+		$.ajax({ //무조건 써야할 목록
+			url : "html1.html"//호출할 주소(url)
+			,type : "get" //데이터 전송 방식(method) - get 또는 post 위에 form형식 참조
+			
+			//data를 넣는 방식은 여러가지가 있다.
+			//,data : {userId : "test01" , userPw : "1234567890"} //전송할 데이터(아이디,패스워드)
+			//,data : $("#fm").serialize()
+			,data : obj
+			
+			,dataType : "html" //결과로 받은 데이터의 유형(서버로 부터 받은 데이터 유형)-html,json,text,xml등
+			,success : function(data){ //성공시 처리할 작업
+				alert("성공");
+			//data를 가공해서 화면에 세팅 및 처리
+			}
+			,error : function(xhr){ //오류시 처리할 작업
+				alert("실패");
+				//xhr에 오류코드랑 오류메시지가 포함
+				
+			}
+		});
+		
+	});
+
+//-------------------------------------------------------------------------------------------
+
+ 	$("#btnGetA").click(function(){
+		//XMLHttpRequest 객체로 호출하기
+		
+		//1) XMLHttpRequest 객체 생성하기
+		var xhttp = new XMLHttpRequest();
+		
+		//2) 서버(,페이지등) 연결하기-open(method,url,async) 
+		var url = "html1.html";
+		xhttp.open("GET",url,true);
+		
+		//3) 서버(,페이지등) 전송하기-send()
+		xhttp.send();
+		
+		//4)결과처리하기(출력하기)
+		xhttp.onreadystatechange = function(){
+			//this == xhttp의 객체
+			if(this.readyState == 4  //4라는 것은 요청이 처리완료됨. 데이터 받음상태
+			&& this.status == 200) // 200이라는 것은 서버에서 요청이 정상처리됨 상태
+			//상태로 처리하는것이라 if를쓴다
+			{
+				//정상처리 되었을때 화면 처리 할 내용
+				//console.log(this.responseText);
+				$("#divResult").html(this.responseText);
+				
+			}
+		};
+	}); 
+	
+//-------------------------------------------------------------------------------------------	
+	
+ 	$("#btnGetS").click(function(){
+		//XMLHttpRequest 객체로 호출하기
+		
+		//1) XMLHttpRequest 객체 생성하기
+		var xhttp = new XMLHttpRequest();
+		
+		//2) 서버(,페이지등) 연결하기-open(method,url,async) 
+		var url = "html1.html";
+		xhttp.open("GET",url,false); //<== 동기식 호출로 변경한곳!!!
+		//동기는 결과 처리를 기다려서 응답을 받는곳이라 change를 받아올수없다.
+		//그래서 밑에 있는 function을 불러올수 없는 것이다.
+		//비동기는 결과처리를 기다리지않고 바로 결과를 받기 때문에 위에 있는 버튼은 함수를 호출할수 있는것이다.
+		
+		
+		//그래서 send()전으로 함수를 호출하면(순서를 바꾸면) 작동이 된다.
+		//4)결과처리하기(출력하기)
+		xhttp.onreadystatechange = function(){
+			//this == xhttp의 객체
+			if(this.readyState == 4  //4라는 것은 요청이 처리완료됨. 데이터 받음상태
+			&& this.status == 200) // 200이라는 것은 서버에서 요청이 정상처리됨 상태
+			//상태로 처리하는것이라 if를쓴다
+			{
+				//정상처리 되었을때 화면 처리 할 내용
+				//console.log(this.responseText);
+				$("#divResult").html(this.responseText);
+				
+			}
+		};
+		
+		//3) 서버(,페이지등) 전송하기-send()
+		xhttp.send();
+		
+	}); 
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

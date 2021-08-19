@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript" src="/JqueryPro/js/jquery10/jquery10_ex2.js"></script> <!-- 스크립트 빼서 쓰기 -->
+	<style type="text/css">
+		td:hover {
+			background-color: lime;
+		}
+		td:active{
+			background-color: red;
+		}
+	</style>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("td").click(function(){
+			$(this).css("background-color","red");
+			
+		});
+	});
+	</script>
+</head>
+<body>
+	<form action="../jquery01/jquery1_basic.html" method="get" id="fm">
+		이름 : <input type="text">
+		<br>
+		나이 : <input type="text">
+		<br><br>
+		<button type="submit">submit</button>
+		<button type="button" onclick="fnGet()">get버튼</button>
+		<button type="button">post버튼</button>
+		<hr>
+		<button type="button" onclick="fnAjax()">Ajax버튼</button>
+		<hr>
+		<button type="button" onclick="fnText()">텍스트</button>
+		<button type="button" onclick="fnHtml()">HTML</button>
+		<button type="button" onclick="fnJsonObj()">JSON obj</button>
+		<button type="button" onclick="fnJsonArr()">JSON 배열</button>
+		<button type="button" onclick="fnJsonList()">JSON 목록</button>
+		<hr>
+		<button type="button" onclick="fnXml()">XML(가수목록)</button>
+		<button type="button" onclick="fnXml2()">XML(제목목록)</button>
+		<button type="button" onclick="fnXmlTable()">XML 목록</button>
+		<button type="button" onclick="fnXmlTable2()">XML 목록(빈목록 포함)</button>
+	</form>
+	<br>
+	<div id="divResult"></div>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>trigger 사용법</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//사용자 정의 함수 사용하기
+			$("p","#ex1").on("myEvent",function(e,name){
+				alert(name+"씨, 뭐지?");
+			});
+			
+			//이벤트를 강제로 발생시키는 메소드-trigger
+			/* $("p","#ex1").trigger("myEvent"); */
+			
+			$("button","#ex1").click(function(){
+				$("p","#ex1").trigger("myEvent" , "홍길동"); //파라미터를 던져줄수있다.
+			});
+/* -------------------------------------------------------------------------------------------------------------------			 */
+			
+			$("input","#ex2").focus(function(){
+				//방법1) appendTo 사용
+				/* $("<span>포커스 받았습니다</span>").appendTo("#ex2").fadeOut(1000); */
+				
+				//방법2)append 사용 
+				var ele =  $("<span>포커스 받았습니다</span>");
+				$("#ex2").append(ele);
+				ele.fadeOut(2000);
+			});
+			
+			
+			$("#btn1").click(function(){//커서를 이동하고
+				$("input","#ex2").trigger("focus");
+			});
+			
+			$("#btn2").click(function(){//커서를 이동하지는 않는다.
+				$("input","#ex2").triggerHandler("focus");
+			});
+			
+			
+		});
+	</script>
+</head>
+<body>
+	<div id="ex1">
+		<h3>사용자 정의 함수 사용하기</h3>
+		<button type="button">트리거</button>
+		<p>안녕하세요.</p>
+	</div>
+	<br>
+	<hr>
+	<br>
+	<div id="ex2">
+		<h3>trigger()와 triggerHandler 비교</h3>
+		<button type="button" id="btn1">trigger</button>
+		<button type="button" id="btn2">triggerHandler</button>
+		<br><br>
+		<input type="text">
+	</div>
+</body>
+</html>

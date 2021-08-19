@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>연습문제1~6</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+	//문제1
+	//1부터 10까지의 합을 구하는 프로그램을 작성하시오.
+	document.write('문제1');
+	document.write("<br>");
+	var sum = 0;
+	for (var i=0;i<=10;i++){
+		sum += i;
+	}
+	document.write(sum);
+	
+	document.write("<hr>");
+	
+	//문제2
+	//1부터 200까지의 짝수의 합을 구하는 프로그램을 작성하시오.(continue를 이용)
+	document.write('문제2');
+	document.write("<br>");
+	sum=0;
+	for (var i = 1; i <=200; i++) {
+		if(i%2==0){
+			sum += i;
+		}
+	}
+	document.write(sum);
+	
+	document.write("<hr>");
+	
+	//문제3
+	//사용자가 입력한 값을 계속 더하고, 사용자가 0을 입력하면 그때까지 누적된 값을 출력하는 프로그램을 작성하시오.
+	document.write('문제3');
+	document.write("<br>");
+	var input=0;
+	var pack = new Array();
+	var count =0;
+	
+	do{
+	input = prompt("계속 더할 숫자를 입력하시오" , "0을 누르면 결과가 출력된다");
+	pack[count] =input;
+		count +=1;
+	}while(input !=0);
+	
+	var packsum =0; 
+	
+	for (var i = 0; i < pack.length ; i++) {
+		packsum += parseInt(pack[i]);
+	}
+	
+	document.write(packsum);
+	
+	document.write("<hr>");
+	
+	
+	//문제4
+	//다중 for문을 이용해서 1~ 10 까지 중  i와 k의 더한 합이 3의 배수일때만 출력 continue를 이용
+	document.write('문제4');
+	document.write("<br>");
+	
+	var iksum =0;
+	for (var i = 1; i <=10; i++) {
+		for (var j = 1; j <=10; j++) {
+			iksum=i+j;
+			if(iksum%3 == 0) {
+				document.write(i+" + "+j+" = "+iksum);
+				document.write("<br>");
+			}
+		}
+	}
+	
+	document.write("<hr>");
+	
+	//문제5
+	//1~100 까지 중 2의 배수이면서 3의 배수인것만 출력
+	document.write('문제5');
+	document.write("<br>");
+	var dd=0;
+	for (var i = 0; i < 100; i++) {
+		if(i%2==0 && i%3==0){
+			document.write('2의배수이면서 3의 배수인것 : '+i);
+			document.write("<br>");
+		}
+	}
+	
+	document.write("<hr>");
+
+	//문제6
+	//두 수를 입력(prompt) 두수의 합이 100이상 일 때만 출력 continue를 이용 , 두수 모두 0 이 입력되면 종료 
+	document.write('문제6');
+	document.write("<br>");
+	var input1 = 0;
+	var input2 = 0;
+	var allsum = 0;
+	var hpack = new Array();
+	count = 0;
+	do{
+		input1 = prompt("계속 더할 첫번째 숫자를 입력하시오" , "첫번째 숫자와 두번째 숫자가 합 했을때 0이면 합이 100이상인것만 출력");
+		input2 = prompt("계속 더할 두번째 숫자를 입력하시오" , "첫번째 숫자와 두번째 숫자가 합 했을때 0이면 합이 100이상인것만 출력");
+		allsum = parseInt(input1)+parseInt(input2);
+		
+		if(allsum >=100 ){
+		hpack[count] =allsum;
+			count +=1;
+		}
+	}while(allsum !=0);
+	
+	
+	for (var i = 0; i < hpack.length ; i++) {
+		
+		document.write(i+"번째 100이상인값 : "+hpack[i]);
+		document.write("<br>");
+	}
+	
+	document.write("<hr>");
+	</script>
+</body>
+</html>

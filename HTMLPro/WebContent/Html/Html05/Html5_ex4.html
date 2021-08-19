@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		table,th,td {
+			border: 1px dotted;
+		}
+		table {
+			border-collapse: collapse;		/*separate이 기본값*/
+			width: 300px;	
+		}
+		caption {
+			caption-side: bottom;
+		}
+		th {
+			background-color: navy;
+			color: white;
+		}
+		td {
+			text-align: center;
+			background-color:  yellow;
+		}
+		tr.green td{
+			text-align: center;
+			background-color:  green;
+		}
+	</style>
+</head>
+<body>
+	<h1>테이블 스타일 연습</h1>
+	<table>
+		<caption>vip 고객리스트</caption>
+		<tr>	
+			<th>이름</th>
+			<th>이메일</th>
+		</tr>
+		<tr class="green">	
+			<td>홍길동</td>
+			<td>princebyun@naber</td>
+		</tr>
+		<tr>	
+			<td>이지은</td>
+			<td>asaaaahkj@</td>
+		</tr>
+		<tr class="green">	
+			<td>박보검</td>
+			<td>asdjsdfssdfshkj@</td>
+		</tr>
+		<tr>	
+			<td>유재석</td>
+			<td>gfgggggshkj@</td>
+		</tr>
+		<tr class="green">	
+			<td>정연닌</td>
+			<td>asdndjdjdjshkj@</td>
+		</tr>
+	</table>
+</body>
+</html>

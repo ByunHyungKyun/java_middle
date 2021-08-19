@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>객체형 정의 및 사용</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var myCar = { //일반 객체를 정의 할때도 중가로를 쓴다
+				model: "X5"
+				,manufacturer : "BMW"
+				,year : 2020
+		}
+		
+		//속성을 가져오는 방법1
+		alert(myCar.model);
+		
+		//속성을 가져오는 방법2
+		alert(myCar["manufacturer"]); //이방법은 스트링 타입으로 써줘야 한다
+	</script>
+</body>
+</html>

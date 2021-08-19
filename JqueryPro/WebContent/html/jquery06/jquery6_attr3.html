@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#all").click(function(){
+				//1) 전체선택 체크박스가 체크되어있는지 확인
+				var isChecked = $(this).prop("checked");
+							
+				//2) 전체선택 체크박스가 체크가 되어있다면
+				if(isChecked){
+					//다른 체크박스 체크해주기
+					
+					//찾는법1.
+					//$(":checked")
+					
+					//찾는법2.
+					//$("#all ~ :checkbox")
+					
+					//찾는법3.
+					$("[name=hobby]").prop("checked",true);
+				}else {
+					//3) 전체선택 체크박스가 체크되어있지 않다면
+					//다른 체크박스 체크 해제 해주기
+					$("[name=hobby]").prop("checked",false);
+				}
+		
+			//$("input[name=hobby]:checked") 체크되어있는 값 가지고 오기	
+			//$("input[name=hobby]").not(":checked") :checked는 뺴고 name=hobby을 가지고 와달라는 메서드
+			});
+			
+			$("[name=hobby]").click(function(){
+				var num = $("[name=hobby]:checked").not("#allChk").length;
+				
+				if(num == 5){
+					$("#all").prop("checked",true);
+				}else {
+					$("#all").prop("checked",false);
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	체크박스 : <input type="checkbox" checked="checked">
+	<br><br>
+	라디오 : <input type="radio" id="genderM" name="gender" value="M" checked="checked">
+		<label for="genderM">남자</label>
+		<input type="radio" id="genderF" name="gender" value="F">
+		<label for="genderF">여자</label>
+	<br><br>
+	리스트박스 : <select>
+	 			<option>하나</option>
+	 			<option selected="selected">둘</option>
+	 			<option>셋</option>
+	   		  </select>
+	<br><br>
+	(readonly) : <input type="text" value="하하하" readonly="readonly">
+	<br><br>
+	(disabled) : <button type="button" disabled="disabled">실행</button> 
+				<button type="button">attr확인</button> 
+				<button type="button">prop확인</button> 
+	<hr>
+	체크박스(전체선택/해제): 
+	<br>
+	<input id="all" type="checkbox">
+	<label for="all">전체선택</label>
+	<input id="all1" type="checkbox" name="hobby"> 
+	<label for="all1">1</label>
+	<input id="all2" type="checkbox" name="hobby"> 
+	<label for="all2">2</label>
+	<input id="all3"type="checkbox" name="hobby"> 
+	<label for="all3">3</label>
+	<input id="all4" type="checkbox" name="hobby"> 
+	<label for="all4">4</label>
+	<input id="all5" type="checkbox" name="hobby">	 
+	<label for="all5">5</label>
+</body>
+</html>
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   <script type="text/javascript">
+   function readFile() {
+      //document.getElementById("attachFile"); // ====> input
+      var files = document.getElementById("attachFile").files; //====>FileList 반환
+      //files[0] ==> File 객체
+      var file = files[0]; //*첨부파일이 없는 경우에 이렇게 쓰면 오류가 날 수 있음.
+      
+      //textarea에 담을 문자 만들기 
+      var str = "";
+      str += "파일명 : " + file.name + "\n"; //파일명
+      str += "파일사이즈 : " + file.size + "\n"; //파일사이즈
+      str += "파일타입 : " + file.type + "\n"; //파일 타입
+      str += "파일 최종수정일시 : " + file.lastModifiedDate + "\n"; //파일 최종수정일시
+      
+      document.getElementById("result").innerHTML = str;
+   }
+   
+   
+   function readFileContent() {
+      var files = document.getElementById("attachFile").files;
+      var file = files[0];
+      
+      var reader = new FileReader(); //파일을 읽기 위한 객체 생성 및 할당
+      reader.readAsText(file); //text로써 file을 읽는다. 
+      //파일을 읽어서 FileReader 객체의 result 속성에 담는다. 
+      
+      //파일 읽기가 끝나면
+      reader.onload =  function(){
+         //onload 이벤트에서 수행할 내용
+         document.getElementById("result").innerHTML = reader.result;
+      }//reader.onload속성에 할당
+      
+   }
+   </script>
+</head>
+<body>
+   <input type="file" id="attachFile">
+   <button type="button" onclick="readFile()">파일 정보</button><br>
+   <button type="button" onclick="readFileContent()">파일 내용</button><br>
+   <textarea id="result" rows="6" cols="60"></textarea>
+</body>
+</html>

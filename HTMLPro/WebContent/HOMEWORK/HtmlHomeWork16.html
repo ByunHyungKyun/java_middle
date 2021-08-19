@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		form {
+			background-color: #F2F2F2;
+		}
+		fieldset {
+			margin-bottom: 10px;
+		}
+		button {
+		color: white;
+		background-color: blue;
+		border-radius: 15px;
+		}
+		
+		button:hover {
+		
+		background-color: green;
+		
+		} 
+	</style>
+	<script type="text/javascript">
+		function ckeck() {
+			var id = document.getElementById("userId");
+			var pass = document.getElementById("userPass");
+			var name = document.getElementById("userName");
+			var bir = document.getElementById("userBir");
+			var phone = document.getElementById("userPhone");
+			var email = document.getElementById("userEmail");
+			
+			if(id.value.trim().length == 0) {
+				alert("아이디빈칸이 있습니다!");
+				id.focus();
+				return;
+			}else if(pass.value.trim().length == 0) {
+				alert("비밀번호빈칸이 있습니다!");
+				pass.focus();
+				return;
+			}else if(name.value.trim().length == 0) {
+				alert("이름빈칸이 있습니다!");
+				name.focus();
+				return;
+			}else if(bir.value.trim().length == 0) {
+				alert("생일빈칸이 있습니다!");
+				bir.focus();
+				return;
+			}else if(phone.value.trim().length == 0) {
+				alert("핸드폰번호빈칸이 있습니다!");
+				phone.focus();
+				return;
+			}else if(email.value.trim().length == 0) {
+				alert("이메일빈칸이 있습니다!");
+				email.focus();
+				return;
+			}
+			
+			
+			var idExp = /^[a-z가-힣0-9_]{8,20}$/;
+			var passExp = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$/;
+			var nameExp = /^[가-힣]{2,5}$/;
+			var birExp = /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+			var phoneExp =/^\d{3}\d{3,4}\d{4}$/; 
+			var emailExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/;
+			
+			
+			
+			if(id.value.match(idExp) == null ){
+				alert("아이디 형식이 틀렸습니다!, 다시입력해주세요!")
+				id.focus();
+				return;
+			}else if(pass.value.match(passExp) == null) {
+				alert("비밀번호 형식이 틀렸습니다!, 다시입력해주세요!")
+				pass.focus();
+				return;
+			}else if(name.value.match(nameExp) == null) {
+				alert("이름 형식이 틀렸습니다!, 다시입력해주세요!")
+				name.focus();
+				return;
+			}else if(bir.value.match(birExp) == null) {
+				alert("생일 형식이 틀렸습니다!, 다시입력해주세요!")
+				bir.focus();
+				return;
+			}else if(phone.value.match(phoneExp) == null) {
+				alert("폰번호 형식이 틀렸습니다!, 다시입력해주세요!")
+				phone.focus();
+				return;
+			}else if(email.value.match(emailExp) == null) {
+				alert("이메일 형식이 틀렸습니다!, 다시입력해주세요!")
+				email.focus();
+				return;
+			}
+				
+			alert("회원가입 성공!");
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>
+				<h3>회원정보 입력</h3>
+			</legend>
+			아이디 : <input type="text" id="userId"><br>
+			(8~20자 영문,한글 숫자사용가능)<br>
+			비밀번호 : <input type="text" id="userPass"><br>
+			(8~20자 영문소문자,대문자,숫자,특수기호 반드시 포함)<br> 
+			이름 : <input type="text" id="userName"><br>
+			(2~5글자 입력)<br>
+			생년월일 : <input type="date" id="userBir"><br>
+			(생년월일 선택)<br>
+			휴대폰번호 : <input type="text" id="userPhone"><br>
+			(-를 제외하고 입력)<br>
+			이메일 : <input type="text" id="userEmail"><br>
+			(이메일형식 필수입력)<br>
+			<button type="button" onclick="ckeck()">회원가입</button>
+			<button type="reset">취소</button>
+		</fieldset>
+		<br>
+	</form>
+</body>
+</html>

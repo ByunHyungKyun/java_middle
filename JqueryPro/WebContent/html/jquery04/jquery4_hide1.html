@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#btnFadeIn").click(function(){
+				/* $("p").fadeIn(); */
+				$("p").slideDown();
+			});
+			$("#btnFadeOut").click(function(){
+				/* $("p").fadeOut(); */
+				$("p").slideUp();
+			});
+			$("#btnToggle").click(function(){
+				$("div").fadeToggle();
+			});
+			$("#btnFadeTo").click(function(){
+				$("div").fadeTo(5000,0);
+			});
+			$("#btnAni").click(function(){
+				$("#tmp").animate({left:'300px'});
+				//==>$("#tmp")의 포지션이 static이면 안됨
+			});
+			
+			
+		});
+	</script>
+	<style type="text/css">
+		div {
+			border: 3px dotted red;
+			position: relative;
+			left: 30px;
+		}
+	</style>
+</head>
+<body>
+	<p>이 영역은 버튼을 누르면 사라졌다가 다시 나타납니다</p>
+	<button id="btnFadeIn" type="button">fadeIn</button>
+	<button id="btnFadeOut" type="button">fadeOut</button>
+	<br><br>
+	<button id="btnToggle" type="button">toggle</button>
+	<button id="btnFadeTo" type="button">To</button>
+	<button id="btnAni" type="button">animate</button>
+	<div id="tmp">
+		안녕하십니까
+		<br>
+		안녕히 가십시오
+	</div>
+</body>
+</html>

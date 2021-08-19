@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<form >
+		<input type="text" id="target" name="username"><br>
+		<button type="button" onclick="proc()">제출</button>
+		<div>무궁화 꽃이 피었습니다.</div>
+		<button type="button" onclick="get()">내용 가져오기</button>
+		<button type="button" onclick="set('오냐')">내용 바꾸기</button>
+		<hr>
+		<img id="image1" lt="안나와" src="../../Img/다운로드.jpg">	
+		<button type="button" onclick="changeImage()">다른이미지로 바꾸기</button>
+		<hr>
+		
+		<p id="p1" style="border: 1px solid red;">동해물과 백두산이 마르고 닳도록~</p>
+		<button type="button" onclick="changeStyle()">스타일변경</button>	
+		<hr>
+		
+		  <img src="../../Img/sw_on.jpg" width="100" id="image2" alt="버튼" onclick="changeImage2()">
+
+				
+	</form>
+	<script type="text/javascript">
+	 function changeImage2() {
+	      var orgSrc = document.getElementById("image2").src;      
+	      var newSrc;
+	      
+	      if (orgSrc.indexOf("sw_on") > -1) {
+	         newSrc = "../../Img/sw_off.jpg";
+	      } else {
+	         newSrc = "../../Img/sw_on.jpg";
+	      }
+	      document.getElementById("image2").src = newSrc;      
+	   }
+
+
+	function changeStyle(){
+		document.getElementById("p1").style.border = "5px dotted blue"
+		//요소마다 .을 찍고 요소를 써서 바꾸면 된다
+	}
+	
+	function changeImage() {
+		document.getElementById("image1").src = "../../Img/다운로드1.jpg";	
+	}
+
+	function get(){
+		//document.getElementsByTagName("div");//배열로 반환	
+		var obj = document.getElementsByTagName("div")[0];//div 반환	
+		alert(obj.innerHTML); //태그사이에 있는 문장을 가져오는것이므로 innerHTML을 쓴다
+	}
+	
+	function set(param){
+		document.getElementsByTagName("div")[0].innerHTML=param; //위에꺼랑 다르게 이렇게 바로쓸수도 있다
+		//'야'로 바꾼다는 뜻이다
+	}
+	
+		function proc() {
+			var obj = document.getElementById("target");
+			
+			alert(obj);
+			alert(obj.value);
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#btnGet').click(function(){
+				/* var userName = $("#userName").val();//value값을 return;
+				var gender = $("[name=gender]:checked").val();
+				var text = $("#description").html();
+				var select = $("#job[option]:checked").val();
+				alert(userName+gender+text+select); */
+				
+				var str = ""
+						+ "이름: "+ $("#userName").val()+"\n"
+						+ "성별: "+ $("[name=gender]:checked").val()+"\n"
+						+ "소개: "+ $("#description").val()+"\n"
+						+ "직업: "+ $("#job").val();
+				alert(str);
+				
+				//$(#job); //=>select의 값을 가지고오는 명령어
+				//$("#job option"); //==>optione들을 가지고오는 명령어
+				//$("#job option:selected"); //==>option의 값을 가지고오는 명령어
+				//$("#job option:selected").text(); //==>option의 텍스트값을 가지고오는 명령어
+				
+			});
+			
+	
+			$('#btnSet').click(function(){
+				$("userName").val("홍길동");
+				document.getElementById("genderF").ckecked = "ckecked";
+				
+			});			
+			
+			
+			
+			
+			
+			
+			
+		});
+	</script>
+</head>
+<body>
+	<form>
+		이름<input type="text" value="아이유" id="userName"><br>
+		성별
+		<input type="radio" id="genderM" name="gender" value="M">
+		<label for="genderM">남자</label>
+		<input type="radio" id="genderF" name="gender" value="F">
+		<label for="genderF">여자</label><br>
+		소개<textarea rows="10" cols="10" id="description"></textarea><br>
+		직업<select id="job">
+			<option value="programer">프로그래머</option>
+			<option value="backsu">백수</option>
+			<option value="mom">엄마</option>
+			<option value="fa">아빠</option>
+			<!-- <option value="A01">프로그래머</option> 필드에서는 이렇게 한다
+			<option value="A02">백수</option>
+			<option value="A03">엄마</option>
+			<option value="A04">아빠</option> -->
+		</select>
+		<br><br>
+		<button type="button" id="btnGet">조사하기</button>
+		<button type="button" id="btnSet">가져오기</button>
+	</form>
+</body>
+</html>

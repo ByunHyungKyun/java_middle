@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<p>JQUERY로 요소 생성하기</p>
+	<img alt="사자" src="../../Img/다운로드.jpg" onclick=""><br>
+	<button type="button" onclick="test()">생성</button>
+</body>
+<script type="text/javascript">
+	function test() {
+		var ele = $("<p>JQUERY로 요소 생성하기</P>"); //=>p요소가 생성됨
+		ele.appendTo("body"); //appendTo : 선택된 요소를 추가하는것 요소 맨밑에서 생성된다
+
+		//$('<img alt="" src="../../Img/다운로드1.jpg">'); //=>사진 생성
+		//다른방법
+		var img = $("<img>", {
+			"alt" : "호랑이" //중괄호에 속성을 넣어줄수있다
+			,"src" : "../../Img/다운로드1.jpg"
+			,"click" : function(){
+				alert("밥!");
+			}
+		});
+		img.appendTo("body");
+		
+	}
+</script>
+</html>

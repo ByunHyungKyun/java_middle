@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<p><strong>아빠상어</strong> 뚜루루루루</p>
+	<p>엄마상어 뚜루루루루</p>
+	<p>아기상어 뚜루루루루</p>
+	<p>할머니상어 뚜루루루루</p>
+	<hr>
+	<button type="button" onclick="getHtml()">html()</button>
+	<button type="button" onclick="getText()">text()</button>
+	<button type="button" onclick="testRepeat()">반복문 테스트</button>
+	<div id="result">
+	</div>
+</body>
+<script type="text/javascript">
+
+	function testRepeat() {
+		// case1) 일반 for문 사용
+		/* var objs = $("p");
+		for(var i = 0 ; i < objs.length ; i++){
+			alert($(objs[i]).html()); //$로 객체화를 시켜줘야 html()메서드를 쓸수 있다 --> j쿼리를 쓸려면 이작업이 필요하다
+		}
+		 */
+		 
+		/* //case2) jquery each문 사용
+		$("p").each(function(){
+			alert($(this).html());
+			
+		});
+		 */
+		
+		//case3) jquery each문 for문처럼 사용(각각 인덱스 찍기)
+		$("p").each(function(idx,obj){ //파라미터는 2개까지 쓸수있다
+			alert(idx+"번째 : "+$(obj).html());
+		});
+				
+		
+		//case4) jquery each문 for문 사용(object 사용)
+		var obj = ["현대","기아","쉐보레"];	 //<== 서버로 결과를 받은 list인 경우 요런식으로 사용되기도 함
+		$.each(arr,function(idx,obj){
+			//arr[idx] ==> obj
+			
+			
+		});
+		
+		
+		
+		
+		
+		
+		
+	}
+
+
+	function getHtml() { //p가 여러개일 경우 처번째 것만 가지고 온다 안에있는 태그를 다가지고 온다
+		var result = $("p").html(); //안에 아무것도 안쓰면 get역할을 하고
+		$("#result").html(result); //안에 넣어주면 set역할을 한다
+		// ==> js방법 : document.getElementById("result").innerHTML = result;
+	}
+	
+	function getText() { //텍스트 형식만 다가지고 온다
+		var result = $("p").text(); //안에 아무것도 안쓰면 get역할을 하고
+		$("#result").html(result); //안에 넣어주면 set역할을 한다
+		
+		
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

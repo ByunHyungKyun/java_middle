@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+
+	function fu(){
+			var pack=Array();
+			var num=0;
+			var real=Math.floor(Math.random() * 10);
+			dis=document.getElementById("re");
+		for (var i = 0; i < 5; i++) {
+			num =Math.floor(Math.random() * 10);
+			pack[i]=num;
+		}
+		
+		for(var i=0; i<pack.length-1;i++){
+			real += ","+pack[i];
+		}
+		    document.getElementById("re").innerText='';
+			dis.value=real+'\n'+dis.value;
+	}
+	
+	</script>
+	</script>
+	<style type="text/css">
+		hr {
+			border: 2px solid blue;
+		}
+		#re {
+			background-color: yellow;
+			border: 1px solid red;
+			width: 200px;
+			height: 250px;
+			overflow: scroll;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" onclick="fu()">시작</button><br>
+	
+	<hr>
+	
+	<h1>출력위치</h1>
+	<textarea id="re" ></textarea> 
+</body>
+</html>

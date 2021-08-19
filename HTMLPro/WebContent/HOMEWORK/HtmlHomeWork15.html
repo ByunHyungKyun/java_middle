@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<style type="text/css">
+	button {
+		color: white;
+		background-color: blue;
+		border-radius: 15px;
+	}
+	div {
+		background-color: #F2F2F2;
+		padding: 15px;
+		margin: 15px;
+	}
+</style>
+<script type="text/javascript">
+	function file() {
+		
+		var files = document.getElementById("attachFile").files;
+		var file = files[0];
+		var rere = file.name;
+	    var reader = new FileReader(); 
+		
+		if( file.type.substr(0,5) == "image"){
+			reader.readAsDataURL(file);
+			
+		reader.onload = function  () {
+			var ele = document.createElement("img");
+			var re = document.getElementById("ho");
+			ele.src = reader.result ;
+			re.appendChild(ele);}; 
+		}else{
+	    reader.readAsText(file);
+	    reader.onload =  function(){document.getElementById("result1").innerHTML = reader.result;}
+	    document.getElementById("ho").remove();
+		}
+		var str = "";
+	    str += "파일명 : " + file.name + "\n"; //파일명
+	    str += "파일사이즈 : " + file.size + "\n"; //파일사이즈
+	    str += "파일타입 : " + file.type + "\n"; //파일 타입
+	    str += "파일 최종수정일시 : " + file.lastModifiedDate + "\n"; //파일 최종수정일시
+	      
+	    document.getElementById("result2").innerHTML = str;
+	}
+</script>
+<body>
+	<div id="select">
+		<input type="file" id="attachFile">
+		<button type="button" onclick="file()">읽기</button>
+	</div>
+	<div id="output">
+		<h1>
+			결과 출력(FileReader객체)	
+		</h1>
+		<p>
+			이미지 파일일 경우에는 DataURL형식으로 아닌경우 Text형식으로
+		</p>
+		<textarea rows="15" cols="70" id="result1"></textarea>
+	</div>
+	<div id="inform">
+		<h1>파일 정보(File객체)</h1>
+		<p>이미지 파일을 읽은 경우에 이미지가 표시된다.<br>
+		다른 파일을 읽었을 경우 이미지가 표시되지 않는다</p><br><br>
+		<P id="ho"></P>
+		<textarea rows="4" cols="70" id="result2" style="height: auto;"></textarea>
+	</div>
+</body>
+</html>

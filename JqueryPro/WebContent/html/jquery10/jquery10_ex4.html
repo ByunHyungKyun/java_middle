@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="/JqueryPro/js/jquery10/jquery10_ex3.js"></script>
+</head>
+<body>
+	<p>안녕하세요, '<span id="spUserName">홍길동</span>'씨.</p>
+	<br>
+	<p>올해로 '<span id="spUserAge">39</span>'살 이시군요~</p>
+</body>
+<script type="text/javascript">
+	//var url = location.href; //http://localhost/JqueryPro/html/jquery10/jquery10_ex4.html?userName=%EC%95%84%EC%9D%B4%EC%9C%A0&userAge=29
+	
+/* 	var params = url.substr(url.indexOf("?")+1);//userName=아이유&userAge=25
+	
+	var arr = params.split("&");//["userName=아이유","userAge=25"]
+	
+	 var arr2 = arr[0].split("=");//["userName","아이유"]
+	
+	 var userName = decodeURI(arr2[1]);//아이유   ;;;;  decodeURI() 를 쓰면 깨지지 않고 나온다.
+	 
+	var userAge = arr[1].split("=")[1];
+	 */
+	 
+	  	var userName = getValue("userName");
+	 	var userAge = getValue("userAge");
+	document.getElementById("spUserName").innerHTML = userName;
+	document.getElementById("spUserAge").innerHTML = userAge;
+</script>
+</html>
+
+

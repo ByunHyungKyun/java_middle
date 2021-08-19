@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML 요소 접근하기</title>
+</head>
+<body>
+	<h1 style="color: red; border: 1px solid black;" id="test">getElementById 사용하기</h1>
+	<button type="button" onclick="func();">클릭</button>
+	
+	<script type="text/javascript">
+		function func() { //펑션은 객체를 위해 중가로를 친다
+			var obj = document.getElementById('test');
+			//==> obj에 <h1>이 할당된다
+			obj.style.color = "blue"; //새미콜론 주의!
+			obj.style.border = "1px dotted green";
+		} 
+	</script>
+	
+	<hr>
+	
+	<h1>덧셈 계산기</h1>
+	첫번째 정수: <input type="text" id="no1"><br>
+	두번째 정수: <input type="text" id="no2"><br>
+	합계: <input type="text" id="sum"><br>
+	<button type="button" onclick="sum();">계산</button>
+	<script type="text/javascript">
+		function sum() {
+			// 첫번째 정수와 두번째 정수 값을 가져와서
+			var ele1 = document.getElementById("no1"); //첫번째 정수라는 input
+			var x = ele1.value;
+			
+			var ele2 = document.getElementById("no2"); //두번째 정수라는 input
+			var y = ele2.value; //var y = document.getElementById("no2").value; 같은말이다 			
+			
+			// 더하고 
+			var sum = parseInt(x)+parseInt(y); //parseInt를 쓰지않으면 문자형으로 인식해서 제대로 더하기가 안된다
+			
+			// 합계에 세팅하기
+			document.getElementById("sum").value = sum; //id에 밸류로 세팅을 해주는데 그 밸류 값이 섬이다
+			
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

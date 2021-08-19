@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function checkEmpty() {
+			var ele = document.getElementById("userName");
+			if(ele.value.trim().length == 0) {//trim() 빈값을 없애준다
+				alert("이름이 입력되지 않았습니다");
+				ele.focus();
+				return;
+			}
+		}
+		
+		function checkLength() {
+			var ele = document.getElementById("userId");
+			if(ele.value.length < 6 || ele.value.length > 8){
+				alert("아이디는 6~8글자 입니다");
+				ele.focus();
+				return;
+			}
+		}
+		
+		function validate() {
+			//빈값 체크 
+			var name = document.getElementById("userName");
+			var addr = document.getElementById("userAddr");
+			var bir = document.getElementById("userBir");
+			var id = document.getElementById("userId");
+			var email = document.getElementById("userEmail");
+			var phone = document.getElementById("userPhone");
+			
+			/* var val = document.getElementById("userPhone").value;
+			val = val.replaceAll("-","");
+			 */
+			 
+			//핸드폰 번호 검사
+			var regExp = /^\d{3}-?\d{3,4}-?\d{4}$/;
+			
+			if(phone.value.match(regExp)){
+				alert("전화번호가 정상입니다");
+				return;
+			}else {
+				alert("전화번호가 오류입니다");
+				phone.focus();
+				return;
+			}
+			
+			
+			
+			if(name.value.trim().length == 0) {
+				alert("이름빈칸이 있습니다!");
+				name.focus();
+				return;
+			}else if(addr.value.trim().length == 0) {
+				alert("주소빈칸이 있습니다!");
+				addr.focus();
+				return;
+			}else if(bir.value.trim().length == 0) {
+				alert("생일빈칸이 있습니다!");
+				bir.focus();
+				return;
+			}else if(id.value.trim().length == 0) {
+				alert("아이디빈칸이 있습니다!");
+				id.focus();
+				return;
+			}else if(email.value.trim().length == 0) {
+				alert("이메일빈칸이 있습니다!");
+				email.focus();
+				return;
+			}else if(phone.value.trim().length == 0) {
+				alert("핸드폰번호빈칸이 있습니다!");
+				phone.focus();
+				return;
+			}
+			
+			/* if(email.value.indexOf("@") != 0){
+				alert("이메일형식이 맞지 않습니다, 다시 입력해주세요!!");
+				email.focus();
+				return;
+			} */
+			
+			
+			//자릿수 체크
+			if(name.value.length < 2 || name.value.length > 5){
+				alert("이름은 2~5글자 입니다,다시입력해주세요!");
+				name.focus();
+				return;
+			}else if(bir.value.length < 10 ) {
+				alert("생일은 10글자 이상입니다,다시입력해주세요!");
+				bir.focus();
+				return;
+			}else if(id.value.length < 6 || id.value.length > 8) {
+				alert("아이디는 6~8글자 입니다,다시입력해주세요!");
+				id.focus();
+				return;
+			}else if(val.length != 11) {
+				alert("휴대폰 번호를 잘못입력하셨습니다,다시입력해주세요!");
+				phone.focus();
+				return;
+				/*
+				try {
+					parseInt(val);
+				}catch (ex){
+					alert();
+				} */
+				
+			}
+			
+			alert("회원가입 성공!");
+		}
+	</script>
+</head>
+<body>
+	<h3>회원가입</h3>
+	<form>
+		이름: <input type="text" id="userName"><br>
+		주소: <input type="text" id="userAddr"><br>
+		생일: <input type="date" id="userBir"><br>
+		아이디(6~8문자): <input type="text" id="userId"><br>
+		이메일: <input type="email" id="userEmail" required="required"><br>
+		휴대폰: <input type="text" id="userPhone"><br>
+		<!-- <button type="submit">확인(서브밋)</button>
+		<button type="button" onclick="checkEmpty()">확인1</button>
+		<button type="button" onclick="checkLength()">확인2</button> -->
+		<br>
+		<button type="button" onclick="validate()">확인</button>
+	</form>
+	<!-- 이메일을 검사하는 정규식
+	/^[a-zA-Z0-9.!#$%&'*+/=?^_'{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ -->
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$("h1")
+		$(".sample")
+		$("#tmp")
+		$("h1[title]")
+		$("h1[title='내맘']")
+		$("h1[title='니맘']")
+	</script>
+</head>
+<body>
+	<h1 onclick="hide()">JQuery 테스트</h1>
+	<h2 class="sample">JQuery 테스트</h2>
+	<h2 id="tmp">JQuery 테스트</h2>
+	<h2 title="내맘">JQuery 테스트</h2>
+	<h2 title="니맘">JQuery 테스트</h2>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){ //화면이 실행될때 처음에  자동으로 실행되게 하는 쿼리문
+		$("body").css("background-color","yellow");
+		$("h1").css("color","blue");
+		$(".sample").css("color","green");
+		$("#tmp").css("color","red");
+		
+		//문서가 로딩되고 나서 
+		//h2요소에 각각 클릭 이벤트 설정 해주기 
+		$("h2").click(function(){
+			$(this).hide();	//this를 써야 내가 클릭한 놈을 없애준다.		
+		});
+	});
+		
+	function hide() {
+		$("h1").hide();
+	}	
+	
+	
+	
+</script>
+</html>
+
+
+
+
+

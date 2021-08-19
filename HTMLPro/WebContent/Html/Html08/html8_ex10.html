@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//함수값을 반환하는 함수 예제
+		function sub(a,b) {
+			return a+b;
+		}
+		window.onload=function(){
+			
+			document.getElementById("a").innerHTML=sub(4,5);
+			
+			var result = confirm("컨펌 메세지 입니다");//확인취소버튼이 있는 창이 나온다
+			document.getElementById("tmp").innerHTML = result; //사용자버튼에 따라 true,false로 결과가 나온다
+		}
+	</script>
+</head>
+<body>
+	<p id="a"></p> 
+	<p id="tmp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

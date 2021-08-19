@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var fruits = ["apple","banana","peer","banana"];
+		var cars = ["아반떼","소나타","제네시스"];
+		
+		document.write(fruits+"<br>");
+		document.write(cars+"<br>");
+		document.write("<hr>");
+		document.write(cars.concat(fruits)+"<br>");
+		document.write(cars.sort()+"<br>");
+		//fruits.length
+		
+		/*내가 한거
+		var names = new Array();
+		var input1=null;
+		var count =0;  
+		do{
+		input1 = prompt("이름을 입력하시오" , "");
+		names[count] = input1;
+		count +=1;
+		}while(input1 != null && input1 !="")
+		document.write(names+"<br>");
+		*/
+		
+		
+		
+		/* 내코드
+		
+		var input2 =null;
+		var num =new Array();
+		 count =0;  
+		do{
+			input2 = prompt("중복되지 않는 정수를 입력하시오" , "숫자만");
+			for (var i = 0; i < num.length; i++) {
+				if(num[i] != num[i+1]){
+					num[count] = input1;
+					count +=1;
+				}
+			}
+			}while(num.length !=5)
+			document.write(num+"<br>");*/
+		
+		function proc1(){
+		//선생님 코드
+		var arr =[];
+		//var idx = 0;
+		while(true){
+			var name = prompt("이름을 입력하시오.\n빈값이나 취소버튼 클릭시 종료")
+	//		alert(name); 디버그(확인하는 방법)
+			if(name == '' || name == "null"){
+				break;
+			}
+			
+			//arr[idx] =name;
+			//idx++;
+			arr.push(name);//인덱스를 굳이 쓰지 않아도 push를 사용할수 있다
+	
+		}
+			//document.write(arr);
+			document.getElementById("divResult").innerHTML = arr;
+		}
+		
+		
+		function proc2(){
+			//서로 중복되지 않는 정수 5개를 입력받아 출력
+			var arr = [];
+			while(true){
+				var value = prompt("정수를 입력하세요");
+				//value가 arr에 존재하는지 확인하고
+				var idx = arr.indexOf(value);
+				
+				if(idx == -1){
+				//존재하지 않으면 arr에 value를 추가
+					arr.push(value);
+				//-추가하고 arr이 5개이면 종료
+					if(arr.length == 5)
+						break;
+				} else {
+					//존재하면 다시 prompt
+					continue;
+				}
+			}
+			document.getElementById("divResult").innerHTML = arr;
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="proc1()">문제1</button>
+	<button type="button" onclick="proc2()">문제2</button>
+	<hr>
+	<h3>문제 결과</h3>
+	<div id ="divResult" style="border: 1px dotted orange;  width: 100%; height: 100px;">
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

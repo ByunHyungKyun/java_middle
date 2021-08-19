@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	
+		function onMouseIn(elem) {
+			elem.style.border = "2px solid red";
+		}
+		
+		function onMouseOut(elem) {
+			elem.style.border = "";
+		}
+		
+		function changeColor1(button) {
+			button.style.color = "#ff0000";
+		}
+		
+		function changeColor2(button) {
+			button.style.color = "#000000"
+		}
+	</script>
+</head>
+<body >
+	<div style="background-color: yellow; width: 200px;
+	 " onmouseover="onMouseIn(this)" onmouseout="onMouseOut(this)">
+		마우스를 이 요소 위로 이동하세요
+	</div>
+	<div>
+		<button onmousedown="changeColor1(this)" onmouseup="changeColor2(this)">
+			눌러보세요!
+		</button>
+	</div>
+</body>
+</html>

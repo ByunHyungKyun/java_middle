@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+		function game() {
+			var val = prompt("가위바위보를 입력하세요", "문자만!");
+			var arr = [ "가위", "바위", "보" ];
+			var randomNo = Math.floor(Math.random() * 3 + 1);
+
+			if (val == arr[randomNo - 1]) {
+				document.getElementById('result').innerHTML = "결과 : 비겼습니다!";
+				if (val == "가위") {
+					document.getElementById("right").src = "../../Img/ga_left.jpg";
+					document.getElementById("left").src = "../../Img/ga_right.jpg";
+				} else if (val == "바위") {
+					document.getElementById("right").src = "../../Img/ba_left.jpg";
+					document.getElementById("left").src = "../../Img/ba_right.jpg";
+				} else {
+					document.getElementById("right").src = "../../Img/bo_left.jpg";
+					document.getElementById("left").src = "../../Img/bo_right.jpg";
+				}
+
+			} else if (val == "가위" && arr[randomNo - 1] == "바위" || val == "바위"
+					&& arr[randomNo - 1] == "보" || val == "보"
+					&& arr[randomNo - 1] == "가위") {
+				document.getElementById('result').innerHTML = "결과 : 당신의 패!!!";
+				if (val == "가위") {
+					document.getElementById("right").src = "../../Img/ga_left.jpg";
+					document.getElementById("left").src = "../../Img/ba_right.jpg";
+				} else if (val == "바위") {
+					document.getElementById("right").src = "../../Img/ba_left.jpg";
+					document.getElementById("left").src = "../../Img/bo_right.jpg";
+				} else {
+					document.getElementById("right").src = "../../Img/bo_left.jpg";
+					document.getElementById("left").src = "../../Img/ga_right.jpg";
+				}
+			} else if (val == "가위" && arr[randomNo - 1] == "보" || val == "바위"
+					&& arr[randomNo - 1] == "가위" || val == "보"
+					&& arr[randomNo - 1] == "바위") {
+				document.getElementById('result').innerHTML = "결과 : 당신의  승!!!";
+				if (val == "가위") {
+					document.getElementById("right").src = "../../Img/ga_left.jpg";
+					document.getElementById("left").src = "../../Img/bo_right.jpg";
+				} else if (val == "바위") {
+					document.getElementById("right").src = "../../Img/ba_left.jpg";
+					document.getElementById("left").src = "../../Img/ga_right.jpg";
+				} else {
+					document.getElementById("right").src = "../../Img/bo_left.jpg";
+
+					document.getElementById("left").src = "../../Img/ba_right.jpg";
+				}
+			} else {
+				document.getElementById('result').innerHTML = "잘못입력하셨습니다! 입력하신 "
+						+ val + "은 사용할수없습니다!!";
+				document.getElementById("right").src = "";
+				document.getElementById("left").src = "";
+			}
+	
+	}
+</script>
+<style type="text/css">
+	#box div {
+		position: relative;
+		float: left;
+		width: 50%;
+	}
+	
+	#grim div {
+		position: relative;
+		float: left;
+		width: 50%;
+	}
+	
+	button {
+		left: 500px;
+	}
+</style>
+</head>
+<body>
+	<div style="text-align: center;" >
+    	<button type="button" onclick="game()">게임시작</button>
+	</div>
+	<div id="box">
+		<div style="background-color:yellow;">
+			<p style="text-align: center;">사람</p>
+		</div>
+		<div style="background-color: red;">
+			<p style="text-align: center;">컴퓨터</p>
+		</div>
+	</div>
+	<div id="grim">
+		<div>
+			<img id="right" alt="" src="../../Img/ba_left.jpg">
+		</div>
+		<div>
+			<img id="left" alt="" src="../../Img/ba_right.jpg">
+		</div>
+	</div>
+	<div>
+		<p id="result" style="text-align: center;"></p>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	div.box {
+		border: 1px solid pink;
+		height: 150px;
+	}
+	
+	img {
+		height: 100px;
+	}
+	</style>
+	<script type="text/javascript">
+	var obj = null; //전역변수로 쓰면 주의 할점이 다 쓰고나서 초기화를 시켜주어야 한다
+	
+	/* function dragObj(ele) {
+		obj = ele;
+	} */
+	
+	function dragObj(ev) {
+		ev.dataTransfer.setData("text",ev.target.id);
+		//==>이렇게 쓸려면 대상 요소에 id가 있어야 한다
+	}
+	
+	
+	function dropObj(ev) {
+		ev.preventDefault();
+		//ev.target //<div>객체
+		//ev.target ==> 이벤트가 발생한 요소(element)
+		
+		if(obj == null){
+			var eleId = ev.dataTransfer.getData("text");
+			obj = document.getElementById(eleId);
+		}
+		
+		ev.target.append(obj);
+		obj = null; //이걸 안하면 다른거는 안움직인다!!!!!중요!!!!!!
+	}
+	
+	function allowDrop(ev) {
+		ev.preventDefault();
+		
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<p>원하는 물건을 끌어서 옮기세요.</p>
+	</div><!--  					event는 내장 객체라서 이벤트가 일어난 값을 파라미터로 보낸다 -->
+	<div class="box" ondrop="dropObj(event)" ondragover="allowDrop(event)"></div>
+	<div>
+		<!-- <img ondragstart="dragObj(this)" alt="사자" src="../../Img/다운로드.jpg"> -->
+		 <img ondragstart="obj = this;" alt="사자" src="../../Img/다운로드.jpg">
+		<img id="img2" ondragstart="dragObj(event)"  alt="호랑이" src="../../Img/다운로드1.jpg">
+		<!-- <img ondragstart="dragObj(this)"  alt="홍길동" src="../../Img/다운로드3.jpg"> -->
+		<img id="img3" ondragstart="dragObj(event)" alt="홍길동" src="../../Img/다운로드3.jpg"> 
+		<!-- 3번은 초기화를 안시켜주면 안된다 -->
+	</div>
+</body>
+</html>

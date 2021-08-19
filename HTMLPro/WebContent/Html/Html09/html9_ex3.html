@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//오늘날짜 
+		var today = new Date();
+		document.write(today+"<br>");
+		
+		var time = today.getTime();
+		document.write("<hr>");
+		
+		//3일 뒤 날짜 계산
+		//3일을 시간(milsec)으로 계산 
+		var addTime = 3 * 24 * 60 * 60 * 1000;//일,시,분,초,밀리세컨드 까지 계산하기
+		
+		//3일뒤 시간
+		var resultTime = time + addTime;
+		var resultDay = new Date(resultTime);
+		
+		document.write(resultTime+"<br>");
+		document.write(resultDay+"<br>");
+		
+		document.write("<hr>");
+		
+		//날짜 비교 하기 
+		
+		function checkDate() {
+			//오늘 날짜와 구입일자를 비교하기 
+			//구입일자
+			var buyDate = document.getElementById("buyDate").value;
+			//new Date() =>날짜를  Date타입으로 바꿔주는 메서드
+			//var buyTime = (new Date(buyDate)).getTime();
+			var buyDate1 = new Date(buyDate);
+			var buyTime = (buyDate1).getTime();
+			
+			
+			//오늘일자
+			var curDate = new Date();
+			var curTime = curDate.getTime();
+			
+			var tmpTime = curTime -buyTime; 
+			console.log(tmpTime);
+			
+			//milsec을 일로 바꾸기 : milsec-초-분-시-일 
+			var tmpday = tmpTime/1000/60/60/24;
+			console.log(tmpday);
+			//parseInt(tmpday);정수로 표시
+			alert("구매하신지 "+parseInt(tmpday)+"일이 지났습니다.");
+			
+			if(parseInt(tmpday) > 7){
+				alert("교환/환불 기간이 경과하였습니다");
+			}
+		}
+		
+		
+	</script>
+</head>
+<body>
+	구입일자 : <input type="date" id="buyDate"> <!-- 날짜 비교를 위해 아이디를 부여 -->
+	<button type="button" onclick="checkDate()">확인</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

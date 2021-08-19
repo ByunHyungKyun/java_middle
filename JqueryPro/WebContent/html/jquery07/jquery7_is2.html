@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("p").click(function(){
+			if($(this).parent().is("div")){
+				var str = $("<p>"+$(this).html()+"</p>");
+				str.attr("style","color: red;"); 
+				$(this).append(str);
+			}else {
+				alert("작업 대상이 아닙니다");
+			}
+		});
+	});
+	</script>
+	<style type="text/css">
+		div {
+			border: 3px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<div><p>무궁화 꽃이 피었습니다</p></div><br>
+	<p>서원이는 예쁘다</p><br>
+	<div><p>사뿐이 즈려밟고 가시옵소서</p></div><br>
+</body>
+</html>

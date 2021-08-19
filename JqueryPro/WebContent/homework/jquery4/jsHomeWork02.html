@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("img").hide();
+			
+			$("a[href *= 조커]").click(function(){
+				$("img").hide("slow",joker);
+			/*  $("img[src *= 아바타]").slideUp("slow",joker);
+				$("img[src *= 해리포터]").fadeOut("slow",joker); */
+			});
+			$("a[href *= 아바타]").click(function(){
+				$("img").fadeOut("slow",avata);
+				/* $("img[src *= 조커]").hide("slow",avata);
+				$("img[src *= 해리포터]").fadeOut("slow",avata); */
+			});
+			$("a[href *= 해리포터]").click(function(){
+				$("img").slideUp("slow",harry);
+				/* $("img[src *= 조커]").hide("slow",harry);
+				$("img[src *= 아바타]").slideUp("slow",harry); */
+			});
+			
+			function joker() {
+				$("img[src *= 조커]").show();
+			}
+			function avata() {
+				$("img[src *= 아바타]").fadeIn();
+			}
+			function harry() {
+				$("img[src *= 해리포터]").slideDown();
+			}
+		});
+	</script>
+</head>
+<body>
+	<h1>영화목록</h1>
+	<ul>
+		<li><a href="../../Img/조커.jpg" onclick="return false;">조커</a></li>
+		<li><a href="../../Img/아바타.jpg"  onclick="return false;">아바타</a></li>
+		<li><a href="../../Img/해리포터.jpg"  onclick="return false;">해리포터</a></li>
+	</ul>
+	<hr color="red">
+	<img alt="" src="../../Img/조커.jpg">
+	<img alt="" src="../../Img/아바타.jpg">
+	<img alt="" src="../../Img/해리포터.jpg">
+	
+	
+</body>
+</html>
+
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+/* 	1번문제----------------------------------------------------------------------------------- */
+	
+	function dan() {
+		var num = document.getElementById("num").value;
+		for (var i = 9; i >=1; i--) {
+			var re = num*i;
+			document.getElementById("gugu").innerHTML=num+" * "+i+" = "+re+"\n"
+										+document.getElementById("gugu").innerHTML;
+		}
+		document.getElementById("gugu").innerHTML=num+"단\n"
+										+document.getElementById("gugu").innerHTML;;
+	}
+/* 	2번문제----------------------------------------------------------------------------------- */	
+	function result() {
+		var name = document.getElementById("na").value;
+		var sex = document.getElementsByName("gender");
+		var ha = document.getElementsByName("hobby");
+		var sex2;
+		var ha2=null;
+		
+		
+		/*of를 써서 향상된 for문을 사용할수 있다
+		for(var tmp in ha) ==> collection에서 사용 : 개발자창에서 찍어보면 배열은 배열로 나오도 콜렉션은 콜렉션으로 나온다
+			for(var tmp of ha){
+				tmp.checked
+			}
+		*/
+		
+		
+		for (var i = 0; i < sex.length; i++) {
+			if (sex[i].checked == true) {
+				sex2 = sex[i].value	
+			}
+		}
+		
+		for (var i = 0; i < ha.length; i++) {
+			if (ha[i].checked == true) {
+				if(ha2==null){
+					ha2 = ha[i].value;	
+				}else{
+				ha2 += ","+ha[i].value;	
+				}
+			}
+		}
+		document.getElementById("tete").innerHTML=name+"씨\n당신은 "
+										+sex2+"이고,\n취미는 "+ha2+"이군요!";	
+		}
+	
+/* 	4번문제----------------------------------------------------------------------------------- */	
+	function search() {
+		var gu = document.getElementById("gugudan");
+		var num = document.getElementById("gugudan").options.selectedIndex;
+		var real = gu.options[num].value;
+		
+		for (var i = 9; i >=1; i--) {
+			var re = real*i;
+			document.getElementById("print").innerHTML=real+" * "+i+" = "+re+"<br>"
+										+document.getElementById("print").innerHTML;
+		}
+	}
+	
+	</script>
+</head>
+<body>
+	<h1>form문제1</h1>
+	<div style="text-align: center;">
+		<input id="num" type="text" size="1px" >단 <button type="button" onclick="dan()">출력</button>
+		<br><br>
+		<textarea id="gugu" rows="20" cols="20"></textarea>
+	</div>
+	
+	<hr>
+	
+	<h1>form문제2</h1>
+	이름 : <input id="na" type="text" size="10"><br>
+	<br>
+	성별 :<input id="man" type="radio" value="남자" name="gender">
+		<label for="man">남자</label>
+		<input id="woman" type="radio" value="여자" name="gender">
+		<label for="woman">여자</label><br> 
+	<br>
+	취미 :	<input type="checkbox" value="독서" name="hobby" id="book">
+					<label for="book">독서</label>
+			<input type="checkbox" value="운동"  name="hobby"  id="ex">
+					<label for="ex">운동</label>
+			<input type="checkbox" value="영화보기"  name="hobby" id="movie">
+					<label for="movie">영화보기</label>
+			<input type="checkbox" value="여행" name="hobby" id="travle">
+					<label for="travle">여행</label>
+			<input type="checkbox" value="음악" name="hobby"  id="music">
+					<label for="music">음악</label>
+			<input type="checkbox" value="맛집탐방" name="hobby" id="food">
+					<label for="food">맛집탐방</label><br>
+	<br>
+	<button type="button" onclick="result()">결과출력</button><br>
+	<textarea id="tete" rows="50" cols="50"></textarea>
+	<hr>
+	
+	<h1>form문제4</h1>
+	<select id="gugudan">
+		<option value="1">1단</option>
+		<option value="2">2단</option>
+		<option value="3">3단</option>
+		<option value="4">4단</option>
+		<option value="5">5단</option>
+		<option value="6">6단</option>
+		<option value="7">7단</option>
+		<option value="8">8단</option>
+		<option value="9">9단</option>
+	</select>
+		<button type="button" onclick="search();">출력</button><br>
+		<h1>결과 출력</h1><br>
+		<p id="print"></p>
+	<br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

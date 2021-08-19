@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		p,div { /*크기정해주기*/
+			width: 200px;
+			height: 100px;
+			
+		}
+		#ex1 {
+			background-color: aqua;
+		}
+		#ex2 {
+			background-color: yellow;
+			position: absolute; /*위치가 다른곳을 영향주지않음*/
+			/*position:fixed; 위치고정*/
+			left: 50px;
+			top: 30px;
+		}
+		#ex3 {
+			background-color: green;
+		}
+		#container {
+			background-color: gray;
+			position: relative;  /*컨테이너는 포지션으로 정해줘야 영향을 받는다,div가 종속적으로 컨테이너를 따라 움직이게 된다*/
+		}
+		img {
+			 width: 200px;
+			 position: absolute;
+			 z-index: -1; /*사진이 맨 밑으로 보내게 된다*/
+			 top: 500px;
+		}
+		img+p{ /*+는 img 밑에 있는 태그를 가리키게 된다*/
+			color: yellow;
+		}
+		#b {
+			background-color: blue; 
+			position:absolute;
+			z-index: -1;
+		}
+		#y {
+			background-color: yellow;
+			position:relative;
+			left:25px;
+			bottom:90px;
+			z-index: -2;
+		}
+		#g {
+			background-color: green;
+			position:relative;
+			left:48px;
+			bottom:165px;
+			z-index: -3;
+		}
+		#ee {
+		 color: red;
+		}
+	</style>
+</head>
+<body>
+	<h1>position 연습</h1> 
+	<p id="ex1">블럭1</p>
+	<div id="container">
+		<div id="ex2">블럭2 (position)</div>  <!-- div는 영역을 설정해 줄때 쓴다. -->
+	</div>
+	<p id="ex3">블럭3</p>
+	
+	<hr>
+	
+	<h1>z-line 연습</h1>
+	<img src="../../Img/KakaoTalk_20210302_121618964.jpg" alt="안나온다">
+	<p>커피마시고 싶은데 커피를 못먹고있어요.</p>
+	
+	<hr>
+	
+	<h1>예제1</h1>
+	<div id="b"></div>
+	<p id="ee">박스1</p>
+	<div id="y">박스2</div>
+	<div id="g">박스3</div>
+	
+	<br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

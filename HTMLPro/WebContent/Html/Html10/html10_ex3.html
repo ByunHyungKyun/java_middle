@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function addtext(t){
+			var node = document.createTextNode(t);
+			document.getElementById("target").appendChild(node);
+		}
+		function addImages() {
+			//li태그를 쓰고있는 값들을 배열로 저장한다.
+			var arr = document.getElementsByTagName("li");
+			
+			//이미지 소스를 가지고 있는 배열
+			var arrImgSrc = ["다운로드1.jpg","다운로드.jpg","다운로드3.jpg","다운로드4.jpg","다운로드1.jpg"];
+			//태그를 배열로 저장하기때문에 for문을 쓴다
+			for (var i = 0; i < arr.length; i++) {
+				//img태그를 만든다는 뜻이다
+				var imgObj = document.createElement('img');
+				imgObj.alt = "";
+				imgObj.src = "../../Img/"+arrImgSrc[i];
+				imgObj.height = "30";
+				
+				arr[i].appendChild(imgObj);//<li>이름<img></li>
+			}
+		}
+		function removeEle() {
+			var parentEle = document.getElementById("target");//<div>를 찾는다
+			var childEle = document.getElementById("p1");//<div>를 찾는다
+			parentEle.removeChild(childEle);
+		}
+	</script>
+	<style type="text/css">
+		button {
+			color: white;
+			background-color: blue;
+			border-radius: 15px;
+		}
+	</style>
+</head>
+<body>
+	<!-- <p id="tmp1">동해물과 백두산이</p>
+	<ul id="tmp2">
+		<li>아메리카노</li>
+		<li id="tmp3">카페라때</li>
+		<li>카푸치노</li>
+	</ul>
+	<div id="target" style="font: 20px bold;" onclick="addtext('무궁화꽃이 피었습니다!')">
+	여기를 클릭하세요.
+	</div> -->
+	<hr>
+	<button type="button" onclick="addImages()">실행</button>
+	<ul id="play">
+		<li>컴퓨터1</li>
+		<li>식품2</li>
+		<li>호랑이</li>
+		<li>cloud03</li>
+		<li>coffee1</li>
+	</ul>
+	<hr>
+	<div id="target">
+		<p id="p1">첫번째 단락</p>
+		<p id="p2">두번째 단락</p>
+	</div>
+	<button type="button" onclick="removeEle()">삭제</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

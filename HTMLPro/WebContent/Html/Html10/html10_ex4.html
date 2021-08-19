@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	function change(obj, fileName) {
+		/*
+		var img = document.getElementsByTagName('li');// [<li>~</li>, <li>~</li>, <li>~</li>, ...]
+		var arrImgSrc = ["다운로드1.jpg","다운로드.jpg","다운로드3.jpg","다운로드4.jpg","다운로드1.jpg"];
+		//태그를 배열로 저장하기때문에 for문을 쓴다
+		for (var i = 0; i < img.length; i++) {
+// 			if(img[i] == obj.innerHTML){
+			//console.log(i + "번째 img:" + img[i].innerHTML);
+			if(img[i].innerHTML == str){
+				var imgObj = document.createElement('img');
+				img.alt = "";
+				img.src = "../../Img/"+arrImgSrc[i];
+				img.height = "30";
+				obj.appendChild(imgObj);//<li>이름<img></li>
+			}
+		} 
+		*/
+		
+		//삭제 ..생성전에 삭제를 넣어주는 이유는 생성하고 삭제하면 생성했던 이미지도 영향을 받기때문에 먼저 실행한다
+		var arrImgs = document.getElementsByTagName("img");
+		for (var i = 0; i < arrImgs.length; i++) {
+			arrImgs[i].remove();
+		}
+		
+		
+		//이미지 생성
+		var odjImg =  document.createElement("img");
+		odjImg.src = "../../Img/"+fileName;
+		odjImg.height = "30";
+		
+		obj.appendChild(odjImg);
+		
+	}
+	</script>
+</head>
+<body>
+	<ul>
+		<li id="tmp1" onclick="change(this,'다운로드1.jpg')">컴퓨터1</li> <!-- 자신을 넘길때는 this를 준다 -->
+		<li id="tmp2"  onclick="change(this, '다운로드1.jpg')">식품</li>
+		<li id="tmp3"  onclick="change(this, '다운로드1.jpg')">호랑이</li>
+		<li id="tmp4"  onclick="change(this,'다운로드1.jpg')">cloud03</li>
+		<li id="tmp5"  onclick="change(this,'다운로드1.jpg')">coffee1</li>
+	</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

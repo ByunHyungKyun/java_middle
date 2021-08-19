@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		//$("li:first").css("background-color","yellow");
+		$("li").first().css("background-color","yellow");
+		
+		//$("li:eq(5)").css("background-color","red");
+		$("li").eq(5).css("background-color","red"); //이렇게 메서드 형식으로 쓰는것을 권장하고 있다.
+		
+		//$("li:lt(4)").css("font-weight","bold");
+		$("li").slice(0,4).css("font-weight","bold");//이건 슬라이스형식 예제
+		
+		//$("li:last").css("background-color","yellow");
+		$("li").last().css("background-color","yellow");
+		
+		//$("li:gt(4)").css("font-size","0.5em");
+		$("li").slice(4).css("font-size","0.5em"); //끝을 쓰지않으면 끝까지 간다!
+	});
+	</script>
+</head>
+<body>
+	<ul>
+		<li>one</li>
+		<li>two</li>
+		<li>three</li>
+		<li>four</li>
+		<li>five</li>
+		<li>six</li>
+		<li>seven</li>
+		<li>eight</li>
+		<li>nine</li>
+	</ul>
+</body>
+</html>

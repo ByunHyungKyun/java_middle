@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			/* $("p").click(function(){
+				var name = $(this).html();
+				var arr = name.split(".");
+				switch(arr[0]){
+				case '1':
+					var addobj = $("<img src='../../Img/다운로드.jpg'>");
+					$(this).append(addobj);
+					break;
+				case '2':
+					var addobj = $("<img src='../../Img/다운로드1.jpg'>");
+					$(this).append(addobj);
+					break;
+				case '3':
+					var addobj = $("<img src='../../Img/다운로드3.jpg'>");
+					$(this).append(addobj);
+					break;
+				case '4':
+					var addobj = $("<img src='../../Img/다운로드4.jpg'>");
+					$(this).append(addobj);
+					break;
+				}
+			}); */
+			
+			$("p").click(function(){
+				var fileName = $(this).attr("title");
+				var strAlt = $(this).text();
+				
+				
+				/* //case 1)이미지생성
+				//이미지 만들어서 
+				var img = $("<img>"); //<img>
+				img.attr("src","../../Img/"+fileName); */
+				
+				
+				//case2)이미지 생성
+				var img = $("<img>",{
+							"src":"../../Img/"+fileName
+							,"alt":strAlt
+							});
+				
+				//p의 자식으로 추가
+				$(this).append(img);
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<p title="다운로드.jpg">1.뭘까요?</p><br>
+	<p title="다운로드1.jpg">2.뭘까요?</p><br>
+	<p title="다운로드3.jpg">3.뭘까요?</p><br>
+	<p title="다운로드4.jpg">4.뭘까요?</p><br>
+</body>
+</html>
+

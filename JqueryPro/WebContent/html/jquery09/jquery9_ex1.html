@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+			var obj = {
+					name :"홍길동"
+					,birth : "1425-12-14"
+					,age : 30
+					,hobby : ["음악","무술","독서"]
+					,address : {
+						city : "대전광역시" 
+						,gu : "중구" 
+						,dong : "대흥동" 
+						}
+				}
+			
+		$("button").click(function(){
+			//1차변환 
+			//object를 string으로 변환하기 - JSON.stringify(obj)
+			var strTemp = JSON.stringify(obj);
+			$("#spanFirst").text(strTemp); 
+			
+			//2차변환
+			//string을 object로 변환하기 - JSON.parse(str)
+			var objTmp =  JSON.parse(strTemp);
+			$("#spanSecond").text(objTmp);//객체를 찍은거기 때문에 html()은 나오지 않는다
+			//객체를 찍을려면 $("#spanSecond").text(objTmp.name) 이런식으로 해야한다
+			
+			//나머지 표시
+			//이름
+			//$("#name").html(); 둘다가능
+			$("#name").text(objTmp.name);
+			
+			$("#age").text(objTmp.age);
+			
+			$("#address").text(objTmp.address.city+" "+objTmp.address.gu+" "+objTmp.address.dong);
+			
+			//$("#hobby").text(objTmp.hobby);
+			//hobby에 컴마를 하고 띄어 쓰는법(배열을 받아서 써보기)
+			//디자인을 하고 후에 다시 디자인을 해야할때 쓰인다
+			var strHooby = "";
+			for(var i=0 ; i<objTmp.hobby.length;i++){
+				strHooby += "("+objTmp.hobby[i]+"), ";
+				
+			}
+			strHooby = strHooby.substr(0,strHooby.length-2);
+			$("#hobby").text(strHooby);
+			
+			$("#birthday").text(objTmp.birth);
+			
+		});	
+	});
+	</script>
+</head>
+<body>
+	<button type="button">JSON변환 테스트</button><br><br>
+	<p>
+		1차변환(obj > str) : <span id="spanFirst"></span>
+	</p>
+	<br><br>
+	<p>
+		2차변환(obj < str) : <span id="spanSecond"></span>
+	</p>
+	<br><br>
+	<p>
+		이름 : <span id="name"></span>
+	</p>
+	<br><br>
+	<p>
+		나이 : <span id="age"></span>
+	</p>
+	<br><br>
+	<p>
+		주소 : <span id="address"></a></span>
+	</p>
+	<br><br>
+	<p>
+		취미 : <span id="hobby"></span>
+	</p>
+	<br><br>
+	<p>
+		생년원일 : <span id="birthday"></span>
+	</p>
+	<br><br>
+</body>
+</html>

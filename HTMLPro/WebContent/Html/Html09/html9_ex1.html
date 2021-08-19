@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>객체 생성 방법</title>
+	<script type="text/javascript">
+		var myCar = {
+				model : "GV80"
+				,color : "blue"
+				,year : 2002
+				,speed : 30
+				,brake : function () {
+					//속도 줄이기(speed)
+					this.speed -= 10; //브레이크함수는 마이카가 가지고 있는 함수이다 여기서 디스를 쓰면 마이카 자체가 된다
+					//this.speed => myCar.speed 같은 뜻이다
+				}
+				,accel : function () {
+					//속도 올리기(speed)
+					this.speed += 10;
+				}
+				
+		};
+		
+		alert(myCar.color); 
+		myCar.color = "red"; //속성변경
+		alert(myCar.color); 
+		
+		alert(myCar.speed);
+		myCar.brake();
+		alert(myCar.speed);
+		
+		
+		//생성자로 객체 생성
+		function Car(model,color,speed) {
+			this.model = model;
+			this.color = color;
+			this.speed = speed;
+			this.brake = function () {
+				this.speed -=10;
+			}
+			this.accel = function() {
+				this.speed +=10;
+			}
+			
+		}
+		
+		var hongCar = new Car("GV70","red",0);
+		var leeCar = new Car("G80","blue",100);
+		hongCar.color = "white";
+		hongCar.brake();
+		
+		
+		//object를 배열로 변환- Object.values()를 사용 
+		var person = {
+			name : "홍길동"
+			,age : 30
+			,city : "대전"
+			,nation : "대한민국"
+			,job : "백수"
+		};
+		var tmp = Object.values(person);
+		alert(tmp);
+		
+		//object를 문자열로 변환-JSON.stringify() -- 속성까지 더블쿼테이션이 들어간다
+		tmp = JSON.stringify(person);
+		document.write(tmp);
+		
+		
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

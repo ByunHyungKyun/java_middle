@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<!-- <script type="text/javascript">
+	//onload 이벤트 - 화면이 준비가 되면 호출되는 함수
+		function init() { //초기화 라는 의미
+			//화면의 기본값을 세팅, DB정보를 조회해서 화면에 설정
+			
+		}
+	</script> -->
+	<script type="text/javascript">
+	//화면이 로딩되면 body 안에 '이미지 추가'버튼 추가하기
+	$(document).ready(function(){
+		//1)이미지추가 라는 버튼 만들기
+		//js방법 : document.readteElement("button");
+		//jq방법 : $("<button>")
+			//var ele = $("<button>");	
+		var ele = $("<button type='button' onclick='addImg()'>이미지 추가</button>");	
+		
+		
+		//2) 버튼을 body안에 추가하기
+		//$("body") ==> <body>
+		$("body").append(ele);
+		$(ele).appendTo("body"); //둘다 같은말
+		//$는 있어도되고 없어도 된다
+		
+	});
+	
+	
+	function addImg() {
+		//이미지 추가하고 ,이미지에 가로세로 지정하기
+		//1) 이미지 요소 생성
+		//2) 요소에 width,height 세팅
+		var ele = $("<img>",{
+			
+			"src" : "../../Img/다운로드1.jpg"
+			,"width" : "100"
+			,"height" : "50"
+			,"click" : function(){//클릭했을때 나오는 이벤트 설정
+				$(this).css("border","2px solid red");
+			}
+		});
+		
+		ele.appendTo("body");
+		
+		
+	}
+	
+	</script>
+</head>
+<!-- <body onload="init()"> -->
+<body>	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#show").click(function(){
+				$("img").show();
+			});
+			$("#hide").click(function(){
+				$("img").hide();
+			});
+			$("#slideUp").click(function(){
+				$("img").slideUp();
+			});
+			$("#slideDown").click(function(){
+				$("img").slideDown();
+			});
+			$("#slideToggle").click(function(){
+				$("img").slideToggle();
+			});
+			$("#fadeIn").click(function(){
+				$("img").fadeIn();
+			});
+			$("#fadeOut").click(function(){
+				$("img").fadeOut();
+			});
+			$("#fadeTo").click(function(){
+				$("img").fadeTo(3000,0);
+			});
+			$("#fadeToggle").click(function(){
+				$("img").fadeToggle();
+			});
+		});
+	</script>
+	<style type="text/css">
+		button {
+			color: white;
+			background-color: blue;
+			border-radius: 15px;
+		}
+	</style>
+</head>
+<body>
+	<button id="show" type="button">show</button> 
+	<button id="hide" type="button">hide</button> 
+	<button id="slideUp" type="button">slideUp</button> 
+	<button id="slideDown" type="button">slideDown</button> 
+	<button id="slideToggle" type="button">slideToggle</button> 
+	<button id="fadeIn" type="button">fadeIn</button> 
+	<button id="fadeOut" type="button">fadeOut</button> 
+	<button id="fadeTo" type="button">fadeTo</button> 
+	<button id="fadeToggle" type="button">fadeToggle</button><br>
+	<img alt="" src="../../Img/다운로드1.jpg">
+</body>
+</html>

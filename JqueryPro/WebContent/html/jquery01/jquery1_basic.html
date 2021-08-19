@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JQUERY 기본</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		/* $(document).ready(function(){
+			alert(1);
+		}); */
+		
+		
+		//$(document).ready 이걸 지정해주지 않고 쓸수도 있다.
+		$(function(){
+			alert(2);
+		}).
+		
+		
+	</script>
+</head>
+<body>
+	<h1>JQuery 테스트</h1>
+</body>
+<script type="text/javascript">
+	var list = document.getElementsByTagName("h1");
+	list[0].style.backgroundColor = "yellow";
+	list[0].style.color = "blue";
+	
+	
+	//$("h1") : document.getElementsByTagName("h1")
+	var obj = $("h1");
+	/* obj.css("background-color","gray");
+	obj.css("color","red");
+	 */
+	obj.css("background-color","gray").css("color","red"); // 메소드 체이닝
+	
+	
+</script>
+</html>

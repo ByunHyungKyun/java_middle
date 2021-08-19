@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#hidden").click(function(){
+			$(":hidden","#ex").each(function(){
+				var str = "태그명: "+$(this).prop("tagName")
+							+"\n"+"유형: "+this.type
+							+"\n"+"값: "+this.value;
+				alert(str);
+			});
+		});
+		
+		$("#visible").click(function(){
+			
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="ex">
+		ID : <input type="text" name="userId">
+		<br>
+		<span style="display: none;">ID가 중복 됩니다.</span>
+		이름 : <input type="text" name="userName">
+		<br>
+		<span style="display: none;">이름을 입력하세요.</span>
+		성별 : <input type="radio" name="gender" id="m" value="man">
+				<label for="m">남자</label>
+				<input type="radio" name="gender" id="g" value="woman">	
+				<label for="g">여자</label>
+		<br>
+		<button type="button" id="hidden">hidden요소</button> 
+		<button type="button" id="visible">visible요소</button>
+		
+		<input type="hidden" id="userAge" name="userAge" value="39">
+	</div>
+</body>
+</html>

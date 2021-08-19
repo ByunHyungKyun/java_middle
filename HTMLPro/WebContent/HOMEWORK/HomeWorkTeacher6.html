@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function sendUserInfo() {
+			//밸리데이션 로직 
+			/* 
+			var result = validate();
+			if(!result) return; */
+			if(!validate())return;
+			
+			//사용자에게 전송 여부 확인
+			if(!confirm("전송하시겠습니까?"))return;//true또는 false를 반환한다 //false가 넘어와서 리턴을 해준다
+			
+			//서버 전송 로직
+		}
+		
+		function isEmpty(str) {
+			//빈값인 경우 
+			if(str == null || str.trim().length == 0)
+			return true;
+			//빈값이 아닌경우 
+			return false;
+		}
+		
+		
+		function hasBlank(str) {
+			return str.match(" ");
+		}
+		
+		
+		function checkLength(str,min,max) {
+			if(min == null && max == null) { //최소값,최대값이 둘다없으면 이상하다
+				return false ;
+			}else if(min == null) { //최대값만 존재하는 경우
+				if(str.length > max)return false;
+			} else if(max == null) {//최소값만 존재하는 경우
+				if(str.length < min)return false;	
+			}else {//최소값,최대값이 둘다 존재하는 경우
+				if(str.length < min || str.length > max) return false;	
+			}
+			
+			return true;
+		}
+
+		
+		function checkRegExp(str,regExp) {
+		 	return  str.match(regExp);
+		}
+		
+		function validate() {
+			//아이디 검사
+			var ele,val;
+			var min,max;
+			//오류 아이디 포커스,메세지
+			ele = document.getElementById("userId");
+			val = ele.value;
+			min = 5;
+			max = 20;
+			
+			
+			//1)빈값 체크
+			//if(val.trim().length == 0) {
+			if(isEmpty(val)) { //모듈화를 통해 변형시킬수있다
+				alert("아이디는 필수입력 입니다");
+				ele.focus();
+				return false;
+			}
+			//2)공백 체크
+			//var regExp = /[0-9a-zA-Zㄱ-ㅎ가-힣]*\s+[0-9a-zA-Zㄱ-ㅎ가-힣]*/; //공백이 여러개 있을수 있어서 +이거를 쓴다
+			//if(val.match(regExp)) {
+			 if(hasBlank(val)) {
+				alert("아이디에 빈칸은 입력하실 수 없습니다");
+				ele.focus();
+				return false;
+			}
+			//3)길이 체크 : 5~10
+			//if(val.length <5 || val.length > 10) {
+			  if(!ckeckLength(val,min,max)){
+				alert("아이디는 "+min+"글자 이상, "+max+"글자 이하여야 합니다");
+				ele.focus();
+				return false;
+			}
+			//4)형식 체크 : 영문소문자 시작, 소문자+숫자
+			//regExp = /^[a-z][0-9a-z]*/;
+			//if(!val.match(regExp)) {
+			  if(checkRegExp(str,/^[a-z][0-9a-z]*/)){
+				alert("아이디 형식이 잘못되었습니다. \n영어 소문자로 시작하고 , 영어 소문자와 숫자로 입력하세요");
+				ele.focus();
+				return false;
+			}
+			
+			//비밀번호 검사
+			// ==> /[a-z]+/ && /[A-Z]+/ && /[0-9]+/ && /[특수문자...]+/  인경우 성공
+			
+			
+			//휴대폰 검사
+			// /^[0-9]{3}[0-9]{3,4}[0-9]{4}|[0-9]{3}-[0-9]{3,4}-[0-9]{4}$/
+			
+			
+			//유효성 체크 검사
+			return true;
+			
+			
+		}
+		
+	</script>
+</head>
+<body>
+	<form>
+		아이디 : <input type="text" id="userId" title="아이디"><br>
+		비밀번호 : <input type="password" id="userPasswoed"  title="비밀번호"><br>
+		이름 : <input type="text"  id="userName" title="이름"><br>
+		생년월일 : <input type="date" id="birthDay" title="생년월일"><br>
+		휴대폰번호 : <input type="text" id="hpNo" title="휴대폰번호"><br>
+		이메일 : <input type="text" id="email" title="이메일"><br>
+		<button type="button" onclick="sendUserInfo()">전송1</button>
+		<button type="submit">전송2</button>
+		<button type="reset">취소</button>
+	</form>
+</body>
+</html>

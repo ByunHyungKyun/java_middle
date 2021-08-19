@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<h1>Jquery 연습 과제1</h1>
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var but = $("<br><button onclick='img()'>이미지 생성</button>", {
+		});
+		but.appendTo("h1");
+	});
+	
+	function img() {
+		var img = $("<img>", {
+			"alt" : "호랑이" 
+			,"src" : "../../Img/다운로드1.jpg"
+			,"click" : function(){
+				$(this).css("border","2px solid red");
+			}
+		});
+		img.appendTo("body");
+	}
+</script>
+</html>

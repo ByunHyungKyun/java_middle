@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			height: 200px;
+			width: 400px;
+			background-color: pink;
+		}
+		
+		span{
+			height: 100px;
+			width: 200px;
+			background-color: yellow;
+			display: block; /* 이요소를 넣어야 나오게 된다.왜냐하면 span은 인라인 요소이기떄문에 */
+			text-align: center;
+			margin: 50px;
+			padding: 10px;
+		}
+	</style>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("button").click(function(e){
+			$(this).css("border","3px solid red");
+			e.stopPropagation();
+		});
+		
+	 	$("span").click(function(){
+			$(this).css("border","3px dotted blue");
+			return false;
+		}); 
+		
+		
+		$("div").click(function(){
+			$(this).css("border","3px double");
+			//방법1) p 태그를 만들어서 추가하기
+			/* var ele = $("<p>Hello~</p>");
+			$(this).append(ele); */
+			
+			//방법2) 텍스트 노드 만들어서 추가하기
+			var node = document.createTextNode("Hello~");
+			$(this).append(node);
+			
+			
+		}); 
+		
+		 $("a").click(function(e){
+			 var age = prompt("출생 연도를 입력하시오, (예;1994)");
+			var day = (new Date()).getFullYear();
+			var num = day-age;
+			
+			if(age == null){ //프롬프트 취소를 넣었을때 나오는 함수
+				alert("입력된 값이 없습니다");
+				return false;
+			}
+			
+			if(num < 19){
+				  e.preventDefault(); 
+				  alert("20세 이상만 네이버로 이동 가능합니다");
+			}
+		/* 	
+			//프롬프트로 태어난 년도 입력받기
+			var year = prompt("태어난 년도를 입력하시오.숫자로만!");
+			
+			//20세 이상인 경우만 페이지 이동하기
+			var currYear = (new Date()).getFullyear(); //=>2021년도 가지고 오기
+			if((currYear-year) < 19 ) {
+			//2021년도 생이 1살 : 2021-2021 = 0
+			//20살은 결과값이 19가나오는 것이다
+				  e.preventDefault(); 
+				  alert("20세 이상만 네이버로 이동 가능합니다");
+			} */
+		}); 
+			 
+		
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<span>
+			<button type="button">클릭하세요</button>
+		</span>
+	</div>
+	<br>
+	<hr color="red">
+	<br>
+	<a href="http://www.naver.com" target="_balnk">네이버로 이동</a>
+</body>
+</html>

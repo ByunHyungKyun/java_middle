@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+</head>
+<body>
+	<form id="fm">
+		이름 : <input type="text" name="userName"> <!-- name을 지정해줘야 submit을 할수있다 -->
+		<br>
+		나이 : <input type="text" name="userAge">
+		<br><br>
+		<button type="submit">submit</button>
+		<button type="button" onclick="fnGet()">get버튼</button>
+		<button type="button" onclick="fnPost()">post버튼</button>
+		<hr>
+	</form>
+	<br>
+	<div id="divResult"></div>
+</body>
+<script type="text/javascript">
+	function fnPost() {
+		var fm = document.getElementById("fm");
+		fm.action = "jquery10_ex4.jsp";
+		fm.method = "post";
+		fm.submit();
+	}
+	
+	function fnGet() {
+		var fm = document.getElementById("fm");
+		fm.action = "jquery10_ex4.html";
+		fm.method = "get";
+		fm.submit();
+	}
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
